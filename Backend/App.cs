@@ -8,11 +8,11 @@ namespace ExeInstaller.Backend
 {
     public class App
     {
-        public string AppVersion { get; private set; } = "1.0.0";
+        public string AppVersion { get; set; } = "1.0.0";
 
-        public string AppName { get; private set; } = "not set";
+        public string AppName { get; set; } = "not set";
 
-        public List<string> DownloadUrls { get; private set; } = ["not set"];
+        public List<string> DownloadUrls { get; set; } = ["not set"];
 
 
     }

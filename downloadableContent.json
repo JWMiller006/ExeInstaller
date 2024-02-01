@@ -1,3 +1,26 @@
-﻿{
-
-}
+﻿[
+  {
+    "AppVersion": "1.0.0",
+    "AppName": "DataExtractionEngine",
+    "DownloadUrls": [
+      "not set",
+      "https://raw.githubusercontent.com/JWMiller006/DataExtractionEngine/main/bin/Debug/net8.0-windows/DataExtractionEngine.deps.json",
+      "https://raw.githubusercontent.com/JWMiller006/DataExtractionEngine/main/bin/Debug/net8.0-windows/DataExtractionEngine.dll",
+      "https://raw.githubusercontent.com/JWMiller006/DataExtractionEngine/main/bin/Debug/net8.0-windows/DataExtractionEngine.exe",
+      "https://raw.githubusercontent.com/JWMiller006/DataExtractionEngine/main/bin/Debug/net8.0-windows/DataExtractionEngine.pdb",
+      "https://raw.githubusercontent.com/JWMiller006/DataExtractionEngine/main/bin/Debug/net8.0-windows/DataExtractionEngine.runtimeconfig.json",
+      "https://raw.githubusercontent.com/JWMiller006/DataExtractionEngine/main/bin/Debug/net8.0-windows/MillerInc.ML.NeuralNetwork.dll",
+      "https://raw.githubusercontent.com/JWMiller006/DataExtractionEngine/main/bin/Debug/net8.0-windows/MillerInc.dll",
+      "https://raw.githubusercontent.com/JWMiller006/DataExtractionEngine/main/bin/Debug/net8.0-windows/NeuralNetowrk.dll",
+      "https://raw.githubusercontent.com/JWMiller006/DataExtractionEngine/main/bin/Debug/net8.0-windows/Newtonsoft.Json.dll",
+      "https://raw.githubusercontent.com/JWMiller006/DataExtractionEngine/main/bin/Debug/net8.0-windows/count.txt",
+      "https://raw.githubusercontent.com/JWMiller006/DataExtractionEngine/main/bin/Debug/net8.0-windows/output.ex.txt",
+      "https://raw.githubusercontent.com/JWMiller006/DataExtractionEngine/main/bin/Debug/net8.0-windows/output.txt",
+      "https://raw.githubusercontent.com/JWMiller006/DataExtractionEngine/main/bin/Debug/net8.0-windows/output0.txt",
+      "https://raw.githubusercontent.com/JWMiller006/DataExtractionEngine/main/bin/Debug/net8.0-windows/output1.txt",
+      "https://raw.githubusercontent.com/JWMiller006/DataExtractionEngine/main/bin/Debug/net8.0-windows/output2.txt",
+      "https://raw.githubusercontent.com/JWMiller006/DataExtractionEngine/main/bin/Debug/net8.0-windows/output3.txt",
+      "https://raw.githubusercontent.com/JWMiller006/DataExtractionEngine/main/bin/Debug/net8.0-windows/trained%20network.json"
+    ]
+  }
+]

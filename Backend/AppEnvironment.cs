@@ -41,8 +41,7 @@ namespace ExeInstaller.Backend
                 //Output.WriteLine(PathToAppData + @"output.txt", "network available");
                 ApplicationFunctions.DownloadAppData(); 
             }
-            InstallableApps = (List<App>)JsonConvert.DeserializeObject<List<App>>
-                (File.ReadAllText(PathToAppData + "downloadable.json"));
+            
         }
 
     }

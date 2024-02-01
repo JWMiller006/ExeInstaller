@@ -6,7 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Net.WebRequestMethods;
 using System.Net;
-using MillerInc.UI.OutputFile; 
+using MillerInc.UI.OutputFile;
+using Newtonsoft.Json;
+using System.Text.Json.Nodes;
+using System.Configuration;
 
 namespace ExeInstaller.Backend
 {
@@ -71,8 +74,10 @@ namespace ExeInstaller.Backend
                     await stream.CopyToAsync(fs);
                     fs.Flush();
                     fs.Close();
-                    stream.Close(); 
+                    stream.Close();
+                    //List<App>? apps = System.Text.Json.JsonSerializer.Deserialize<List<App>>(System.IO.File.ReadAllText(AppEnvironment.PathToAppData + "downloadable.json")); 
 
+                    //if (apps != null) AppEnvironment.InstallableApps = apps;
                 }
                 //Output.WriteLine(AppEnvironment.PathToAppData + @"output.txt", "download complete");
 
