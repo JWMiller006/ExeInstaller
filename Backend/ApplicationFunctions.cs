@@ -73,11 +73,12 @@ namespace ExeInstaller.Backend
                     FileStream fs = new(AppEnvironment.PathToAppData + "downloadable.json",FileMode.OpenOrCreate, FileAccess.ReadWrite);
                     await stream.CopyToAsync(fs);
                     fs.Flush();
+                    await Task.Delay(100);
                     fs.Close();
                     stream.Close();
-                    //List<App>? apps = System.Text.Json.JsonSerializer.Deserialize<List<App>>(System.IO.File.ReadAllText(AppEnvironment.PathToAppData + "downloadable.json")); 
+                    List<App>? apps = System.Text.Json.JsonSerializer.Deserialize<List<App>>(System.IO.File.ReadAllText(AppEnvironment.PathToAppData + "downloadable.json")); 
 
-                    //if (apps != null) AppEnvironment.InstallableApps = apps;
+                    if (apps != null) AppEnvironment.InstallableApps = apps;
                 }
                 //Output.WriteLine(AppEnvironment.PathToAppData + @"output.txt", "download complete");
 
