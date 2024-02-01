@@ -1,3 +1,5 @@
+using ExeInstallerBuilder.Backend;
+
 namespace ExeInstallerBuilder
 {
     internal static class Program
@@ -11,7 +13,8 @@ namespace ExeInstallerBuilder
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            AppEnvironment.Initialize();
+            Application.Run(new LandingPage());
         }
     }
 }
