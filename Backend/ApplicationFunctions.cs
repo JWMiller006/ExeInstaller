@@ -8,7 +8,7 @@ using static System.Net.WebRequestMethods;
 using System.Net;
 using MillerInc.UI.OutputFile; 
 
-namespace ExeInstallerBuilder.Backend
+namespace ExeInstaller.Backend
 {
     internal static class ApplicationFunctions
     {

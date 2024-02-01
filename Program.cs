@@ -1,6 +1,6 @@
-using ExeInstallerBuilder.Backend;
+using ExeInstaller.Backend;
 
-namespace ExeInstallerBuilder
+namespace ExeInstaller
 {
     internal static class Program
     {

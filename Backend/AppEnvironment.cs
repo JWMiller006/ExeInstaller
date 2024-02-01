@@ -7,7 +7,7 @@ using System.Net;
 using System.Net.NetworkInformation;
 using MillerInc.UI.OutputFile;
 
-namespace ExeInstallerBuilder.Backend
+namespace ExeInstaller.Backend
 {
     internal static class AppEnvironment
     {
@@ -22,12 +22,17 @@ namespace ExeInstallerBuilder.Backend
         public static void Initialize()
         {
 
-            Output.WriteLine(PathToAppData + @"output.txt", "starting initialization");
             if (!System.IO.Directory.Exists(PathToAppData))
             {
                 System.IO.Directory.CreateDirectory(PathToAppData);
             }
-            
+            try
+            {
+                File.Create(PathToAppData + @"output.txt");
+                Output.WriteLine(PathToAppData + @"output.txt", "starting initialization");
+
+            }
+            catch { }
             if (!ApplicationFunctions.IsNetworkAvailable(1000))
             {
                 Output.WriteLine(PathToAppData + @"output.txt", "network available");

@@ -1,4 +1,4 @@
-﻿namespace ExeInstallerBuilder
+﻿namespace ExeInstaller
 {
     partial class LandingPage
     {

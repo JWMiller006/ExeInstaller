@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ExeInstallerBuilder
+namespace ExeInstaller
 {
     public partial class LandingPage : Form
     {
