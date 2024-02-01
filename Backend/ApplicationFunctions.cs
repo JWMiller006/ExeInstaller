@@ -46,7 +46,7 @@ namespace ExeInstaller.Backend
                 }
                 catch {
 
-                    Output.WriteLine(AppEnvironment.PathToAppData + @"output.txt", "network not available");
+                    //Output.WriteLine(AppEnvironment.PathToAppData + @"output.txt", "network not available");
                 }
                 return result; 
             }
@@ -59,13 +59,13 @@ namespace ExeInstaller.Backend
             // Download app data from the server
             Thread downloader = new(async() =>
             {
-                Output.WriteLine(AppEnvironment.PathToAppData + @"output.txt", "download started");
+                //Output.WriteLine(AppEnvironment.PathToAppData + @"output.txt", "download started");
                 using (var client = new System.Net.Http.HttpClient()) // WebClient
                 {
                     Stream stream; 
                     var fileName = AppEnvironment.PathToAppData + @"downloadedData.json";
                     var uri = new Uri(AppEnvironment.AppDataUrl);
-
+                    System.IO.File.Delete(AppEnvironment.PathToAppData + @"downloadable.json");
                     stream = await client.GetStreamAsync(uri);
                     FileStream fs = new(AppEnvironment.PathToAppData + "downloadable.json",FileMode.OpenOrCreate, FileAccess.ReadWrite);
                     await stream.CopyToAsync(fs);
@@ -74,7 +74,7 @@ namespace ExeInstaller.Backend
                     stream.Close(); 
 
                 }
-                Output.WriteLine(AppEnvironment.PathToAppData + @"output.txt", "download complete");
+                //Output.WriteLine(AppEnvironment.PathToAppData + @"output.txt", "download complete");
 
             });
 

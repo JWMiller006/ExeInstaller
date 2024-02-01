@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Net.NetworkInformation;
 using MillerInc.UI.OutputFile;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace ExeInstaller.Backend
 {
@@ -16,8 +18,9 @@ namespace ExeInstaller.Backend
         public static string PathToAppData { get; private set; } = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + 
             @"\MillerInc\Installer\";
 
-        public static string AppDataUrl { get; private set; } = @"https://raw.githubusercontent.com/JWMiller006/MillerInc/master/README.md";
+        public static string AppDataUrl { get; private set; } = @"https://raw.githubusercontent.com/JWMiller006/ExeInstaller/master/downloadableContent.json";
 
+        public static List<App> InstallableApps { get; set; } = []; 
 
         public static void Initialize()
         {
@@ -35,9 +38,11 @@ namespace ExeInstaller.Backend
             catch { }
             if (!ApplicationFunctions.IsNetworkAvailable(1000))
             {
-                Output.WriteLine(PathToAppData + @"output.txt", "network available");
+                //Output.WriteLine(PathToAppData + @"output.txt", "network available");
                 ApplicationFunctions.DownloadAppData(); 
             }
+            InstallableApps = (List<App>)JsonConvert.DeserializeObject<List<App>>
+                (File.ReadAllText(PathToAppData + "downloadable.json"));
         }
 
     }

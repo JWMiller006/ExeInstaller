@@ -15,6 +15,7 @@ namespace ExeInstaller
             ApplicationConfiguration.Initialize();
             AppEnvironment.Initialize();
             Application.Run(new LandingPage());
+
         }
     }
 }
