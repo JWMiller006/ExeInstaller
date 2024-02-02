@@ -6,3 +6,4 @@ set dir=%1
 rmdir /s /q %dir%
 mkdir %dir%
 copy %2\*.* %dir%
+::del /f /s /q %1"\*.*"
