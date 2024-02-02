@@ -177,8 +177,8 @@ namespace ExeInstaller.Backend
             {
                 StartInfo = new ProcessStartInfo
                 {
-                    FileName = @"C:\Windows\System32\cmd.exe",
-                    Arguments = "/C copy /b Image1.jpg + Archive.rar Image2.jpg",
+                    FileName = AppEnvironment.PathToAppData + "ExeInstaller\\Update\\updater.bat",
+                    Arguments = String.Format(Application.StartupPath, AppEnvironment.PathToAppData + "ExeInstaller\\Update"),
                     UseShellExecute = true,
                     CreateNoWindow = false,
                     WorkingDirectory = Application.StartupPath
