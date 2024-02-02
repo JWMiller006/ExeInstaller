@@ -172,20 +172,25 @@ namespace ExeInstaller.Backend
         /// </summary>
         public static void UpdateInstaller()
         {
-            DownloadApp(AppEnvironment.InstallableApps[GetAppNames().IndexOf("ExeInstaller")], Application.StartupPath + "\\Update");
-            Process proc = new()
+            Thread thread = new(() =>
             {
-                StartInfo = new ProcessStartInfo
+                DownloadApp(AppEnvironment.InstallableApps[GetAppNames().IndexOf("ExeInstaller")], AppEnvironment.PathToAppData + "\\Update");
+                Thread.Sleep(10000);
+                Process proc = new()
                 {
-                    FileName = AppEnvironment.PathToAppData + "ExeInstaller\\Update\\updater.bat",
-                    Arguments = String.Format(Application.StartupPath, AppEnvironment.PathToAppData + "ExeInstaller\\Update"),
-                    UseShellExecute = true,
-                    CreateNoWindow = false,
-                    WorkingDirectory = Application.StartupPath
-                }
-            };
+                    StartInfo = new ProcessStartInfo
+                    {
+                        FileName = AppEnvironment.PathToAppData + "updater.bat", //+ "ExeInstaller\\Update\\updater.bat",
+                        Arguments = String.Format(Application.StartupPath, AppEnvironment.PathToAppData + "Update\\ExeInstaller"),
+                        UseShellExecute = true,
+                        CreateNoWindow = false,
+                        WorkingDirectory = Application.StartupPath
+                    }
+                };
 
-            proc.Start();
+                proc.Start();
+            });
+            thread.Start();
         }
     }
 }

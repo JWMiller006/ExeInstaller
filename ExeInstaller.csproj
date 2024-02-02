@@ -25,7 +25,7 @@
 
   <ItemGroup>
     <None Update="updater.bat">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

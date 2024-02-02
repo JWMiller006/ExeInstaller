@@ -21,7 +21,7 @@ namespace ExeInstaller
             InitializeComponent();
             updateGUI();
             checkForUpdates.Hide();
-            updateInstaller.Hide(); 
+            updateInstaller.Hide();
         }
 
         public static volatile List<string> Applications = [];
@@ -29,7 +29,7 @@ namespace ExeInstaller
         private void checkForUpdates_Click(object sender, EventArgs e)
         {
             updateGUI();
-            checkForUpdates.Hide(); 
+            checkForUpdates.Hide();
         }
 
         private void updateSource_DoWork(object sender, DoWorkEventArgs e)
@@ -106,6 +106,12 @@ namespace ExeInstaller
             this.updateStatus.Visible = true;
             this.statusLabel.Text = "Status: Checking for updates...";
             updateSource.RunWorkerAsync();
+        }
+
+        private void updateInstaller_Click(object sender, EventArgs e)
+        {
+            ApplicationFunctions.UpdateInstaller();
+            this.Dispose(); 
         }
     }
 }

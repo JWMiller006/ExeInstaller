@@ -131,6 +131,7 @@
             updateInstaller.TabIndex = 4;
             updateInstaller.Text = "Update Installer";
             updateInstaller.UseVisualStyleBackColor = true;
+            updateInstaller.Click += updateInstaller_Click;
             // 
             // LandingPage
             // 

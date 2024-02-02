@@ -12,23 +12,7 @@ namespace ExeInstaller
         static void Main(string[] args)
         {
             // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-
-            if (args.Length > 0)
-            {
-                if (args[0] == "finish update")
-                {
-                    string path = Application.StartupPath;
-                    List<string> files = System.IO.Directory.GetFiles(path).ToList();
-                    foreach (string file in files)
-                    {
-                        if (file.Contains("update"))
-                        {
-                            System.IO.File.Delete(file);
-                        }
-                    }
-                }
-            }
+            // see https://aka.ms/applicationconfiguration
 
             ApplicationConfiguration.Initialize();
             AppEnvironment.Initialize();

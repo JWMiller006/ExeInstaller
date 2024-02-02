@@ -16,6 +16,7 @@ namespace ExeInstaller.Pages
         public InstallApp()
         {
             InitializeComponent();
+            this.Dispose();
         }
 
         public InstallApp(App app)
@@ -25,7 +26,7 @@ namespace ExeInstaller.Pages
             this.installationThread.RunWorkerAsync();
         }
 
-        private App app;
+        private App app = new();
 
         private void installationThread_DoWork(object sender, DoWorkEventArgs e)
         {

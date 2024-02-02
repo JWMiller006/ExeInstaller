@@ -6,13 +6,13 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "ExeInstallerBuilder/1.0.0": {
+      "ExeInstaller/1.0.0": {
         "dependencies": {
           "Newtonsoft.Json": "13.0.3",
           "MillerInc": "1.0.3.0"
         },
         "runtime": {
-          "ExeInstallerBuilder.dll": {}
+          "ExeInstaller.dll": {}
         }
       },
       "Newtonsoft.Json/13.0.3": {
@@ -34,7 +34,7 @@
     }
   },
   "libraries": {
-    "ExeInstallerBuilder/1.0.0": {
+    "ExeInstaller/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

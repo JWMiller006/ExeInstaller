@@ -10,7 +10,7 @@
       "https://raw.githubusercontent.com/JWMiller006/ExeInstaller/v1.0.0.0/bin/Release/net8.0-windows/ExeInstaller.runtimeconfig.json",
       "https://raw.githubusercontent.com/JWMiller006/ExeInstaller/v1.0.0.0/bin/Release/net8.0-windows/Newtonsoft.Json.dll",
       "https://raw.githubusercontent.com/JWMiller006/ExeInstaller/v1.0.0.0/bin/Release/net8.0-windows/MillerInc.dll",
-      "https://raw.githubusercontent.com/JWMiller006/ExeInstaller/master/bin/Release/net8.0-windows/updater.bat"
+      "https://raw.githubusercontent.com/JWMiller006/ExeInstaller/master/updater.bat"
     ],
     "Publisher":  "MillerInc"
   },

@@ -13,7 +13,7 @@ namespace ExeInstaller.Backend
 {
     internal static class AppEnvironment
     {
-        public static string AppVersion { get; private set; } = "1.0.0";
+        public static string AppVersion { get; private set; } = "0.0.0";
 
         public static string PathToAppData { get; private set; } = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + 
             @"\MillerInc\Installer\";
