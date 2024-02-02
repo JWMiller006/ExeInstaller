@@ -1,6 +1,12 @@
 ﻿[
   {
     "AppVersion": "1.0.0",
+    "AppName": "ExeInstaller",
+    "DownloadUrls": [
+
+  },
+  {
+    "AppVersion": "1.0.0",
     "AppName": "DataExtractionEngine",
     "DownloadUrls": [
       "https://raw.githubusercontent.com/JWMiller006/DataExtractionEngine/main/bin/Debug/net8.0-windows/DataExtractionEngine.deps.json",
