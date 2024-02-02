@@ -14,6 +14,20 @@ namespace ExeInstaller.Backend
 
         public List<string> DownloadUrls { get; set; } = ["not set"];
 
+        public string Publisher { get; set; } = "MillerInc";
 
+        public static List<string> GetPublishers(List<App> apps)
+        {
+            List<string> publishers = [];
+            foreach (App app in apps)
+            {
+                if (!publishers.Contains(app.Publisher))
+                {
+                    publishers.Add(app.Publisher);
+                }
+            }
+            return publishers;
+        }
     }
+
 }

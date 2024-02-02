@@ -19,17 +19,17 @@ namespace ExeInstaller
         public LandingPage()
         {
             InitializeComponent();
+            updateGUI();
+            checkForUpdates.Hide();
+            updateInstaller.Hide(); 
         }
 
         public static volatile List<string> Applications = [];
 
         private void checkForUpdates_Click(object sender, EventArgs e)
         {
-            this.updateStatus.Value = 0;
-            this.updateStatus.Maximum = 100;
-            this.updateStatus.Visible = true;
-            this.statusLabel.Text = "Status: Checking for updates...";
-            updateSource.RunWorkerAsync();
+            updateGUI();
+            checkForUpdates.Hide(); 
         }
 
         private void updateSource_DoWork(object sender, DoWorkEventArgs e)
@@ -38,7 +38,7 @@ namespace ExeInstaller
             Thread.Sleep(200);
             updateSource.ReportProgress(25);
             Applications = ApplicationFunctions.GetAppNames();
-            Thread.Sleep(200);
+            Thread.Sleep(750);
             updateSource.ReportProgress(100);
         }
 
@@ -49,11 +49,31 @@ namespace ExeInstaller
             {
                 this.updateStatus.Visible = false;
                 this.statusLabel.Text = "Status: All Up to Date";
-                this.appList.Nodes[0].Nodes.Clear();
-                foreach (string app in Applications)
+                this.appList.Nodes.Clear();
+                List<string> publishers = App.GetPublishers(AppEnvironment.InstallableApps);
+                foreach (string publisher in publishers)
                 {
-                    this.appList.Nodes[0].Nodes.Add(app);
+                    this.appList.Nodes.Add(publisher);
                 }
+                foreach (App app in AppEnvironment.InstallableApps)
+                {
+                    if (app.AppName != "ExeInstaller")
+                    {
+                        this.appList.Nodes[publishers.IndexOf(app.Publisher)].Nodes.Add(app.AppName);
+                    }
+                }
+                Applications = ApplicationFunctions.GetAppNames();
+                if (AppEnvironment.InstallableApps.Count == 0)
+                {
+                    this.statusLabel.Text = "Status: Error: No apps found";
+                }
+                if (AppEnvironment.InstallableApps[Applications.IndexOf("ExeInstaller")].AppVersion != AppEnvironment.AppVersion)
+                {
+                    this.statusLabel.Text = "Status: Update Available";
+                    updateInstaller.Show();
+
+                }
+                this.checkForUpdates.Show();
             }
 
         }
@@ -78,6 +98,14 @@ namespace ExeInstaller
 
                 }
             }
+        }
+        private void updateGUI()
+        {
+            this.updateStatus.Value = 0;
+            this.updateStatus.Maximum = 100;
+            this.updateStatus.Visible = true;
+            this.statusLabel.Text = "Status: Checking for updates...";
+            updateSource.RunWorkerAsync();
         }
     }
 }

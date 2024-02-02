@@ -11,11 +11,16 @@ using Newtonsoft.Json;
 using System.Text.Json.Nodes;
 using System.Configuration;
 using System.Security.Policy;
+using System.Diagnostics;
 
 namespace ExeInstaller.Backend
 {
     internal static class ApplicationFunctions
     {
+        /// <summary>
+        /// Is supposed to check if there access to the network, doesn't work currently
+        /// </summary>
+        /// <returns></returns>
         public static bool IsNetworkAvailable()
         {
             if (System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable())
@@ -35,6 +40,11 @@ namespace ExeInstaller.Backend
             return false; 
         }
         
+        /// <summary>
+        /// Is supposed to check if there access to the network, doesn't work currently
+        /// </summary>
+        /// <param name="timeout"></param>
+        /// <returns></returns>
         public static bool IsNetworkAvailable(int timeout)
         {
             if (System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable())
@@ -57,6 +67,9 @@ namespace ExeInstaller.Backend
             return false; 
         }
 
+        /// <summary>
+        /// Downloads the application data from the server
+        /// </summary>
         public static void DownloadAppData()
         {
 
@@ -88,6 +101,10 @@ namespace ExeInstaller.Backend
             downloader.Start();
         }
 
+        /// <summary>
+        /// Downloads the application from the server
+        /// </summary>
+        /// <param name="app"></param>
         public static void DownloadApp(App app)
         {
             Parallel.ForEach(app.DownloadUrls, (url) => 
@@ -96,7 +113,21 @@ namespace ExeInstaller.Backend
             });
 
         }
+        
+        public static void DownloadApp(App app, string installationLocation)
+        {
+            Parallel.ForEach(app.DownloadUrls, (url) => 
+            {
+                DownloadFile(url, installationLocation + "\\" + app.AppName + url.Substring(url.LastIndexOf("/")));
+            });
 
+        }
+
+        /// <summary>
+        /// Downloads a specific file from the server
+        /// </summary>
+        /// <param name="url">the url to the file</param>
+        /// <param name="path">the path to save the file to</param>
         public static void DownloadFile(string url, string path)
         {
             Thread downloader = new(async() =>
@@ -121,6 +152,10 @@ namespace ExeInstaller.Backend
             downloader.Start();
         }
 
+        /// <summary>
+        /// Gets a list of application names from the installable apps
+        /// </summary>
+        /// <returns></returns>
         public static List<string> GetAppNames()
         {
             List<string> names = []; 
@@ -129,6 +164,28 @@ namespace ExeInstaller.Backend
                 names.Add(app.AppName);
             }
             return names; 
+        }
+
+        /// <summary>
+        /// Gets the download from the server and relpaces the current version with the new version, 
+        /// assumes that there is access to the network
+        /// </summary>
+        public static void UpdateInstaller()
+        {
+            DownloadApp(AppEnvironment.InstallableApps[GetAppNames().IndexOf("ExeInstaller")], Application.StartupPath + "\\Update");
+            Process proc = new()
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = @"C:\Windows\System32\cmd.exe",
+                    Arguments = "/C copy /b Image1.jpg + Archive.rar Image2.jpg",
+                    UseShellExecute = true,
+                    CreateNoWindow = false,
+                    WorkingDirectory = Application.StartupPath
+                }
+            };
+
+            proc.Start();
         }
     }
 }

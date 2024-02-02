@@ -23,4 +23,10 @@
     </Reference>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="updater.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

@@ -38,11 +38,6 @@ namespace ExeInstaller.Backend
 
             }
             catch { }
-            if (!ApplicationFunctions.IsNetworkAvailable(1000))
-            {
-                //Output.WriteLine(PathToAppData + @"output.txt", "network available");
-                ApplicationFunctions.DownloadAppData(); 
-            }
             
         }
 

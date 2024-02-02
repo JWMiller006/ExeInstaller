@@ -39,6 +39,7 @@
             availableAppsPanel = new Panel();
             appList = new TreeView();
             installSelected = new Button();
+            updateInstaller = new Button();
             landingPageStatus.SuspendLayout();
             availableAppsPanel.SuspendLayout();
             SuspendLayout();
@@ -68,9 +69,9 @@
             // landingPageStatus
             // 
             landingPageStatus.Items.AddRange(new ToolStripItem[] { statusLabel, updateStatus });
-            landingPageStatus.Location = new Point(0, 428);
+            landingPageStatus.Location = new Point(0, 439);
             landingPageStatus.Name = "landingPageStatus";
-            landingPageStatus.Size = new Size(800, 22);
+            landingPageStatus.Size = new Size(484, 22);
             landingPageStatus.TabIndex = 1;
             landingPageStatus.Text = "statusStrip1";
             // 
@@ -92,10 +93,11 @@
             // 
             // availableAppsPanel
             // 
+            availableAppsPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             availableAppsPanel.Controls.Add(appList);
             availableAppsPanel.Location = new Point(12, 54);
             availableAppsPanel.Name = "availableAppsPanel";
-            availableAppsPanel.Size = new Size(776, 329);
+            availableAppsPanel.Size = new Size(460, 340);
             availableAppsPanel.TabIndex = 2;
             // 
             // appList
@@ -106,12 +108,13 @@
             treeNode1.Name = "millerincapps";
             treeNode1.Text = "From Miller Inc";
             appList.Nodes.AddRange(new TreeNode[] { treeNode1 });
-            appList.Size = new Size(776, 329);
+            appList.Size = new Size(460, 340);
             appList.TabIndex = 0;
             // 
             // installSelected
             // 
-            installSelected.Location = new Point(636, 389);
+            installSelected.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            installSelected.Location = new Point(320, 400);
             installSelected.Name = "installSelected";
             installSelected.Size = new Size(152, 36);
             installSelected.TabIndex = 3;
@@ -119,18 +122,30 @@
             installSelected.UseVisualStyleBackColor = true;
             installSelected.Click += installSelected_Click;
             // 
+            // updateInstaller
+            // 
+            updateInstaller.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            updateInstaller.Location = new Point(341, 12);
+            updateInstaller.Name = "updateInstaller";
+            updateInstaller.Size = new Size(131, 36);
+            updateInstaller.TabIndex = 4;
+            updateInstaller.Text = "Update Installer";
+            updateInstaller.UseVisualStyleBackColor = true;
+            // 
             // LandingPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSkyBlue;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(484, 461);
+            Controls.Add(updateInstaller);
             Controls.Add(installSelected);
             Controls.Add(availableAppsPanel);
             Controls.Add(landingPageStatus);
             Controls.Add(checkForUpdates);
             ForeColor = SystemColors.ControlText;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MinimumSize = new Size(500, 500);
             Name = "LandingPage";
             Text = "LandingPage";
             landingPageStatus.ResumeLayout(false);
@@ -151,5 +166,6 @@
         private Panel availableAppsPanel;
         private TreeView appList;
         private Button installSelected;
+        private Button updateInstaller;
     }
 }
