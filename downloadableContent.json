@@ -3,7 +3,6 @@
     "AppVersion": "1.0.0",
     "AppName": "DataExtractionEngine",
     "DownloadUrls": [
-      "not set",
       "https://raw.githubusercontent.com/JWMiller006/DataExtractionEngine/main/bin/Debug/net8.0-windows/DataExtractionEngine.deps.json",
       "https://raw.githubusercontent.com/JWMiller006/DataExtractionEngine/main/bin/Debug/net8.0-windows/DataExtractionEngine.dll",
       "https://raw.githubusercontent.com/JWMiller006/DataExtractionEngine/main/bin/Debug/net8.0-windows/DataExtractionEngine.exe",
