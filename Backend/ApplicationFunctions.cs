@@ -180,11 +180,13 @@ namespace ExeInstaller.Backend
                 {
                     StartInfo = new ProcessStartInfo
                     {
-                        FileName = AppEnvironment.PathToAppData + "updater.bat", //+ "ExeInstaller\\Update\\updater.bat",
-                        Arguments = String.Format(Application.StartupPath, AppEnvironment.PathToAppData + "Update\\ExeInstaller"),
+                        FileName = @"C:\Windows\System32\cmd.exe", //+ "ExeInstaller\\Update\\updater.bat",
+                        Arguments = "/C updater.bat " + Application.StartupPath +  " " +
+                        AppEnvironment.PathToAppData + "\\Update\\ExeInstaller & cd " + Application.StartupPath + 
+                        " &ExeInstaller.exe & exit",
                         UseShellExecute = true,
                         CreateNoWindow = false,
-                        WorkingDirectory = Application.StartupPath
+                        WorkingDirectory = AppEnvironment.PathToAppData + "Update\\ExeInstaller"
                     }
                 };
 
