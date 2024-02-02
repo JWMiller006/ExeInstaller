@@ -22,6 +22,8 @@ namespace ExeInstaller.Backend
 
         public static List<App> InstallableApps { get; set; } = []; 
 
+        public static string InstallLocation { get; set; } = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + @"\MillerInc\Installer\";
+
         public static void Initialize()
         {
 
