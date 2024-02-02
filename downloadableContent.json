@@ -3,7 +3,14 @@
     "AppVersion": "1.0.0",
     "AppName": "ExeInstaller",
     "DownloadUrls": [
-
+      "https://raw.githubusercontent.com/JWMiller006/ExeInstaller/v1.0.0.0/bin/Release/net8.0-windows/ExeInstaller.deps.json",
+      "https://raw.githubusercontent.com/JWMiller006/ExeInstaller/v1.0.0.0/bin/Release/net8.0-windows/ExeInstaller.dll",
+      "https://raw.githubusercontent.com/JWMiller006/ExeInstaller/v1.0.0.0/bin/Release/net8.0-windows/ExeInstaller.exe",
+      "https://raw.githubusercontent.com/JWMiller006/ExeInstaller/v1.0.0.0/bin/Release/net8.0-windows/ExeInstaller.pdb",
+      "https://raw.githubusercontent.com/JWMiller006/ExeInstaller/v1.0.0.0/bin/Release/net8.0-windows/ExeInstaller.runtimeconfig.json",
+      "https://raw.githubusercontent.com/JWMiller006/ExeInstaller/v1.0.0.0/bin/Release/net8.0-windows/Newtonsoft.Json.dll",
+      "https://raw.githubusercontent.com/JWMiller006/ExeInstaller/v1.0.0.0/bin/Release/net8.0-windows/MillerInc.dll"
+    ]
   },
   {
     "AppVersion": "1.0.0",
