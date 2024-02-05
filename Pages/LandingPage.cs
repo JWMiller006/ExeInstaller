@@ -67,12 +67,16 @@ namespace ExeInstaller
                 {
                     this.statusLabel.Text = "Status: Error: No apps found";
                 }
-                if (AppEnvironment.InstallableApps[Applications.IndexOf("ExeInstaller")].AppVersion != AppEnvironment.AppVersion)
+                try
                 {
-                    this.statusLabel.Text = "Status: Update Available";
-                    updateInstaller.Show();
+                    if (AppEnvironment.InstallableApps[Applications.IndexOf("ExeInstaller")].AppVersion != AppEnvironment.AppVersion)
+                    {
+                        this.statusLabel.Text = "Status: Update Available";
+                        updateInstaller.Show();
 
+                    }
                 }
+                catch (ArgumentOutOfRangeException) { }
                 this.checkForUpdates.Show();
             }
 
