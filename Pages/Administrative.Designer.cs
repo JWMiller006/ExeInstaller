@@ -85,19 +85,19 @@
             // txtToolStripMenuItem1
             // 
             txtToolStripMenuItem1.Name = "txtToolStripMenuItem1";
-            txtToolStripMenuItem1.Size = new Size(180, 22);
+            txtToolStripMenuItem1.Size = new Size(113, 22);
             txtToolStripMenuItem1.Text = ".txt";
             // 
             // jsonToolStripMenuItem1
             // 
             jsonToolStripMenuItem1.Name = "jsonToolStripMenuItem1";
-            jsonToolStripMenuItem1.Size = new Size(180, 22);
+            jsonToolStripMenuItem1.Size = new Size(113, 22);
             jsonToolStripMenuItem1.Text = ".json";
             // 
             // otherToolStripMenuItem1
             // 
             otherToolStripMenuItem1.Name = "otherToolStripMenuItem1";
-            otherToolStripMenuItem1.Size = new Size(180, 22);
+            otherToolStripMenuItem1.Size = new Size(113, 22);
             otherToolStripMenuItem1.Text = "Other...";
             // 
             // saveToolStripMenuItem
@@ -136,6 +136,7 @@
             closeToolStripMenuItem1.Name = "closeToolStripMenuItem1";
             closeToolStripMenuItem1.Size = new Size(180, 22);
             closeToolStripMenuItem1.Text = "Close";
+            closeToolStripMenuItem1.Click += closeToolStripMenuItem1_Click;
             // 
             // viewToolStripMenuItem
             // 
@@ -150,31 +151,35 @@
             smallWindowToolStripMenuItem.Name = "smallWindowToolStripMenuItem";
             smallWindowToolStripMenuItem.Size = new Size(146, 22);
             smallWindowToolStripMenuItem.Text = "Window";
-            smallWindowToolStripMenuItem.Click += smallWindowToolStripMenuItem_Click;
+            smallWindowToolStripMenuItem.Click += windowToolStripMenuItem_Click;
             // 
             // smallToolStripMenuItem
             // 
             smallToolStripMenuItem.Name = "smallToolStripMenuItem";
             smallToolStripMenuItem.Size = new Size(119, 22);
             smallToolStripMenuItem.Text = "Small";
+            smallToolStripMenuItem.Click += smallToolStripMenuItem_Click;
             // 
             // mediumToolStripMenuItem
             // 
             mediumToolStripMenuItem.Name = "mediumToolStripMenuItem";
             mediumToolStripMenuItem.Size = new Size(119, 22);
             mediumToolStripMenuItem.Text = "Medium";
+            mediumToolStripMenuItem.Click += mediumToolStripMenuItem_Click;
             // 
             // largeToolStripMenuItem
             // 
             largeToolStripMenuItem.Name = "largeToolStripMenuItem";
             largeToolStripMenuItem.Size = new Size(119, 22);
             largeToolStripMenuItem.Text = "Large";
+            largeToolStripMenuItem.Click += largeToolStripMenuItem_Click;
             // 
             // taskManagerToolStripMenuItem
             // 
             taskManagerToolStripMenuItem.Name = "taskManagerToolStripMenuItem";
             taskManagerToolStripMenuItem.Size = new Size(146, 22);
             taskManagerToolStripMenuItem.Text = "Task Manager";
+            taskManagerToolStripMenuItem.Click += taskManagerToolStripMenuItem_Click;
             // 
             // helpToolStripMenuItem
             // 
@@ -188,18 +193,21 @@
             whatIsThisToolStripMenuItem.Name = "whatIsThisToolStripMenuItem";
             whatIsThisToolStripMenuItem.Size = new Size(188, 22);
             whatIsThisToolStripMenuItem.Text = "What is this?";
+            whatIsThisToolStripMenuItem.Click += whatIsThisToolStripMenuItem_Click;
             // 
             // whyAmISeeingThisToolStripMenuItem
             // 
             whyAmISeeingThisToolStripMenuItem.Name = "whyAmISeeingThisToolStripMenuItem";
             whyAmISeeingThisToolStripMenuItem.Size = new Size(188, 22);
             whyAmISeeingThisToolStripMenuItem.Text = "Why am I seeing this?";
+            whyAmISeeingThisToolStripMenuItem.Click += whyAmISeeingThisToolStripMenuItem_Click;
             // 
             // closeToolStripMenuItem
             // 
             closeToolStripMenuItem.Name = "closeToolStripMenuItem";
             closeToolStripMenuItem.Size = new Size(188, 22);
             closeToolStripMenuItem.Text = "Close";
+            closeToolStripMenuItem.Click += closeToolStripMenuItem_Click;
             // 
             // statusStrip1
             // 

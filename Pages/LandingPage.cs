@@ -128,7 +128,7 @@ namespace ExeInstaller
             {
                 // Go to admin mode
                 Administrative admin = new();
-                admin.ShowDialog();
+                admin.Show();
             }
             else if (result == DialogResult.TryAgain)
             {

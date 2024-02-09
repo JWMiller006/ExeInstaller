@@ -7,6 +7,9 @@
     <Compile Update="Pages\Finshed.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Pages\Information.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Pages\InstallApp.cs">
       <SubType>Form</SubType>
     </Compile>
