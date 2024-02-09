@@ -71,9 +71,11 @@ namespace ExeInstaller
                 {
                     if (AppEnvironment.InstallableApps[Applications.IndexOf("ExeInstaller")].AppVersion != AppEnvironment.AppVersion)
                     {
-                        this.statusLabel.Text = "Status: Update Available";
-                        updateInstaller.Show();
-
+                        if (!AppEnvironment.DebugMode)
+                        {
+                            this.statusLabel.Text = "Status: Update Available";
+                            updateInstaller.Show();
+                        }
                     }
                 }
                 catch (ArgumentOutOfRangeException) { }
@@ -125,6 +127,8 @@ namespace ExeInstaller
             if (result == DialogResult.Yes)
             {
                 // Go to admin mode
+                Administrative admin = new();
+                admin.ShowDialog();
             }
             else if (result == DialogResult.TryAgain)
             {

@@ -13,7 +13,7 @@ namespace ExeInstaller.Backend
 {
     internal static class AppEnvironment
     {
-        public static string AppVersion { get; private set; } = "1.0.1.1";
+        public static string AppVersion { get; private set; } = "1.0.2.1";
 
         public static string PathToAppData { get; private set; } = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + 
             @"\MillerInc\Installer\";
@@ -41,5 +41,10 @@ namespace ExeInstaller.Backend
             
         }
 
+
+        /// <summary>
+        /// Remember to set this to false before release
+        /// </summary>
+        public static bool DebugMode { get; set; } = true;
     }
 }
