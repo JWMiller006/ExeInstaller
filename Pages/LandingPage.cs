@@ -115,7 +115,21 @@ namespace ExeInstaller
         private void updateInstaller_Click(object sender, EventArgs e)
         {
             ApplicationFunctions.UpdateInstaller();
-            this.Dispose(); 
+            this.Dispose();
+        }
+
+        private void adminButton_Click(object sender, EventArgs e)
+        {
+            Login login = new();
+            DialogResult result = login.ShowDialog();
+            if (result == DialogResult.Yes)
+            {
+                // Go to admin mode
+            }
+            else if (result == DialogResult.TryAgain)
+            {
+                adminButton_Click(new object(), new EventArgs());
+            }
         }
     }
 }

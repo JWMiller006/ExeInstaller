@@ -10,5 +10,8 @@
     <Compile Update="Pages\LandingPage.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Pages\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
