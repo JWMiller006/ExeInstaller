@@ -38,19 +38,23 @@
             // 
             // outputText
             // 
+            outputText.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             outputText.BorderStyle = BorderStyle.None;
-            outputText.Location = new Point(12, 12);
+            outputText.Location = new Point(14, 16);
+            outputText.Margin = new Padding(3, 4, 3, 4);
             outputText.Name = "outputText";
             outputText.ReadOnly = true;
-            outputText.Size = new Size(416, 229);
+            outputText.Size = new Size(475, 305);
             outputText.TabIndex = 0;
             outputText.Text = "";
             // 
             // okayButton
             // 
-            okayButton.Location = new Point(149, 247);
+            okayButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            okayButton.Location = new Point(170, 329);
+            okayButton.Margin = new Padding(3, 4, 3, 4);
             okayButton.Name = "okayButton";
-            okayButton.Size = new Size(142, 36);
+            okayButton.Size = new Size(162, 48);
             okayButton.TabIndex = 1;
             okayButton.Text = "Continue";
             okayButton.UseVisualStyleBackColor = true;
@@ -58,12 +62,13 @@
             // 
             // Information
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(440, 295);
+            ClientSize = new Size(503, 393);
             Controls.Add(okayButton);
             Controls.Add(outputText);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Information";
             Text = "Information";
             FormClosed += Information_FormClosed;
