@@ -41,6 +41,8 @@ namespace ExeInstaller.Backend
             
         }
 
+        public static string UsersApps { get; set; } = PathToAppData + "usersApps.json";
+
 
         /// <summary>
         /// Remember to set this to false before release

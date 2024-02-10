@@ -90,12 +90,17 @@ namespace ExeInstaller.Backend
                 fs.Close();
                 stream.Close();
                 List<App>? apps = System.Text.Json.JsonSerializer.Deserialize<List<App>>(System.IO.File.ReadAllText(AppEnvironment.PathToAppData + "downloadable.json"));
-
+                List<App>? userApps = System.Text.Json.JsonSerializer.Deserialize<List<App>>(System.IO.File.ReadAllText(AppEnvironment.UsersApps));
                 if (apps != null)
                 {
                     AppEnvironment.InstallableApps = apps;
                 }
-                
+
+                if (userApps != null)
+                {
+                    AppEnvironment.InstallableApps.AddRange(userApps);
+                }
+
             });
 
             downloader.Start();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ExeInstaller.Backend;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,6 +7,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,6 +18,7 @@ namespace ExeInstaller.Pages
         public Administrative()
         {
             InitializeComponent();
+            this.UpdateUI();
         }
 
         private void windowToolStripMenuItem_Click(object sender, EventArgs e)
@@ -72,6 +75,99 @@ namespace ExeInstaller.Pages
         private void closeToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddApplicationButton_Click(object sender, EventArgs e)
+        {
+            App app = new()
+            {
+                AppName = this.appNameIn.Text,
+                AppVersion = this.appVersionInput.Text,
+                DownloadUrls = this.links.Lines.ToList(),
+                Publisher = this.publisherInput.Text
+            };
+            AppEnvironment.InstallableApps.Add(app);
+            List<App>? apps = JsonSerializer.Deserialize<List<App>>(System.IO.File.ReadAllText(AppEnvironment.UsersApps));
+            apps ??= [];
+            apps.Add(app);
+            File.WriteAllText(AppEnvironment.UsersApps, JsonSerializer.Serialize(apps));
+            this.Clear();
+            this.statusText.Text = "App Added";
+        }
+
+        private void Clear()
+        {
+            this.appNameIn.Text = "";
+            this.appVersionInput.Text = "";
+            this.links.Text = "";
+            this.publisherInput.Text = "";
+        }
+
+        private void mainContainer_TabIndexChanged(object sender, EventArgs e)
+        {
+            this.UpdateUI(); 
+        }
+
+        private void UpdateUI()
+        {
+            this.installedApps.Items.Clear();
+            List<App>? apps = JsonSerializer.Deserialize<List<App>>(System.IO.File.ReadAllText(AppEnvironment.UsersApps));
+            apps ??= [];
+            foreach (App app in apps)
+            {
+                this.installedApps.Items.Add(app.AppName);
+            }
+            if (apps.Count() <= 0) 
+            {
+                this.installedApps.Items.Add("No apps installed");
+            }
+        }
+
+        private void uninstall_Click(object sender, EventArgs e)
+        {
+            List<string> items = GetCheckedItems();
+            this.statusText.Text = "Uninstalling " + items.Count + " apps";
+            foreach (string item in items)
+            {
+                AppEnvironment.InstallableApps.Remove(AppEnvironment.InstallableApps.Find(x => x.AppName == item));
+            }
+            List<App>? apps = JsonSerializer.Deserialize<List<App>>(System.IO.File.ReadAllText(AppEnvironment.UsersApps));
+            apps ??= [];
+            foreach (string item in items)
+            {
+                try
+                {
+                    apps.Remove(apps.Find(x => x.AppName == item));
+                }
+                catch (Exception) { }
+            }
+            File.WriteAllText(AppEnvironment.UsersApps, JsonSerializer.Serialize(apps));
+            this.statusText.Text = "Cleaning Up...";
+            Thread.Sleep(250); 
+            this.UpdateUI();
+            this.statusText.Text = "Done";
+        }
+
+        private List<string> GetCheckedItems()
+        {
+            List<string> items = [];
+            for (int i = 0; i <= (this.installedApps.Items.Count - 1); i++)
+            {
+                if (this.installedApps.GetItemChecked(i))
+                {
+                    if (installedApps.Items[i] != null)
+                    {
+                        items.Add(installedApps.Items[i].ToString());
+                    }
+                }
+            }
+
+            return items;
         }
     }
 }
