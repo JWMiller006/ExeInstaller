@@ -3,13 +3,13 @@
     "AppVersion": "1.0.2.1",
     "AppName": "ExeInstaller",
     "DownloadUrls": [
-      "https://raw.githubusercontent.com/JWMiller006/ExeInstaller/v1.0.0.0/bin/Release/net8.0-windows/ExeInstaller.deps.json",
-      "https://raw.githubusercontent.com/JWMiller006/ExeInstaller/v1.0.0.0/bin/Release/net8.0-windows/ExeInstaller.dll",
-      "https://raw.githubusercontent.com/JWMiller006/ExeInstaller/v1.0.0.0/bin/Release/net8.0-windows/ExeInstaller.exe",
-      "https://raw.githubusercontent.com/JWMiller006/ExeInstaller/v1.0.0.0/bin/Release/net8.0-windows/ExeInstaller.pdb",
-      "https://raw.githubusercontent.com/JWMiller006/ExeInstaller/v1.0.0.0/bin/Release/net8.0-windows/ExeInstaller.runtimeconfig.json",
-      "https://raw.githubusercontent.com/JWMiller006/ExeInstaller/v1.0.0.0/bin/Release/net8.0-windows/Newtonsoft.Json.dll",
-      "https://raw.githubusercontent.com/JWMiller006/ExeInstaller/v1.0.0.0/bin/Release/net8.0-windows/MillerInc.dll",
+      "https://github.com/JWMiller006/ExeInstaller/raw/master/bin/Release/net8.0-windows/publish/ExeInstaller.deps.json",
+      "https://github.com/JWMiller006/ExeInstaller/raw/master/bin/Release/net8.0-windows/publish/ExeInstaller.dll",
+      "https://github.com/JWMiller006/ExeInstaller/raw/master/bin/Release/net8.0-windows/publish/ExeInstaller.exe",
+      "https://github.com/JWMiller006/ExeInstaller/raw/master/bin/Release/net8.0-windows/publish/ExeInstaller.pdb",
+      "https://github.com/JWMiller006/ExeInstaller/raw/master/bin/Release/net8.0-windows/publish/ExeInstaller.runtimeconfig.json",
+      "https://github.com/JWMiller006/ExeInstaller/raw/master/bin/Release/net8.0-windows/publish/Newtonsoft.Json.dll",
+      "https://github.com/JWMiller006/ExeInstaller/raw/master/bin/Release/net8.0-windows/publish/MillerInc.dll",
       "https://raw.githubusercontent.com/JWMiller006/ExeInstaller/master/updater.bat"
     ],
     "Publisher":  "MillerInc"
