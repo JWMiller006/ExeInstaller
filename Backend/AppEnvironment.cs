@@ -47,6 +47,6 @@ namespace ExeInstaller.Backend
         /// <summary>
         /// Remember to set this to false before release
         /// </summary>
-        public static bool DebugMode { get; set; } = true;
+        public static bool DebugMode { get; set; } = false;
     }
 }
