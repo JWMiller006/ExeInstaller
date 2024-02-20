@@ -35,9 +35,10 @@
             // 
             // enterCredentials
             // 
-            enterCredentials.Location = new Point(126, 212);
+            enterCredentials.Location = new Point(110, 159);
+            enterCredentials.Margin = new Padding(3, 2, 3, 2);
             enterCredentials.Name = "enterCredentials";
-            enterCredentials.Size = new Size(122, 42);
+            enterCredentials.Size = new Size(107, 32);
             enterCredentials.TabIndex = 0;
             enterCredentials.Text = "Login";
             enterCredentials.UseVisualStyleBackColor = true;
@@ -45,23 +46,27 @@
             // 
             // passBox
             // 
-            passBox.Location = new Point(117, 179);
+            passBox.Location = new Point(102, 134);
+            passBox.Margin = new Padding(3, 2, 3, 2);
             passBox.Mask = "aaaa.0000.0000.0000.0000";
             passBox.Name = "passBox";
             passBox.PasswordChar = '*';
-            passBox.Size = new Size(156, 27);
+            passBox.Size = new Size(137, 23);
             passBox.TabIndex = 1;
             // 
             // Login
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(375, 364);
+            ClientSize = new Size(328, 273);
             Controls.Add(passBox);
             Controls.Add(enterCredentials);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            ImeMode = ImeMode.NoControl;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Login";
             Text = "Login";
+            TopMost = true;
             ResumeLayout(false);
             PerformLayout();
         }

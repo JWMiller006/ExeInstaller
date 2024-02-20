@@ -16,6 +16,11 @@ namespace ExeInstaller.Backend
 
         public string Publisher { get; set; } = "MillerInc";
 
+        /// <summary>
+        /// if true, the final file in this list must be the app data file in the proper format
+        /// </summary>
+        public bool SupportsMillerInc { get; set; } = false;
+
         public static List<string> GetPublishers(List<App> apps)
         {
             List<string> publishers = [];

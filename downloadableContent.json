@@ -12,7 +12,8 @@
       "https://github.com/JWMiller006/ExeInstaller/raw/master/bin/Release/net8.0-windows/publish/MillerInc.dll",
       "https://raw.githubusercontent.com/JWMiller006/ExeInstaller/master/updater.bat"
     ],
-    "Publisher":  "MillerInc"
+    "Publisher": "MillerInc",
+    "SupportsMillerInc": false
   },
   {
     "AppVersion": "1.0.0",
@@ -34,8 +35,10 @@
       "https://raw.githubusercontent.com/JWMiller006/DataExtractionEngine/main/bin/Debug/net8.0-windows/output1.txt",
       "https://raw.githubusercontent.com/JWMiller006/DataExtractionEngine/main/bin/Debug/net8.0-windows/output2.txt",
       "https://raw.githubusercontent.com/JWMiller006/DataExtractionEngine/main/bin/Debug/net8.0-windows/output3.txt",
-      "https://raw.githubusercontent.com/JWMiller006/DataExtractionEngine/main/bin/Debug/net8.0-windows/trained%20network.json"
+      "https://raw.githubusercontent.com/JWMiller006/DataExtractionEngine/main/bin/Debug/net8.0-windows/trained%20network.json",
+      "https://raw.githubusercontent.com/JWMiller006/DataExtractionEngine/main/bin/Release/net8.0-windows/Backend/AppData.json"
     ],
-    "Publisher":  "MillerInc"
+    "Publisher": "MillerInc",
+    "SupportsMillerInc": true
   }
 ]
