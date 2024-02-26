@@ -94,7 +94,15 @@ namespace ExeInstaller.Pages
                 Publisher = this.publisherInput.Text
             };
             AppEnvironment.InstallableApps.Add(app);
-            List<App>? apps = JsonSerializer.Deserialize<List<App>>(System.IO.File.ReadAllText(AppEnvironment.UsersApps));
+            List<App>? apps = []; 
+            try
+            {
+                apps = JsonSerializer.Deserialize<List<App>>(System.IO.File.ReadAllText(AppEnvironment.UsersApps));
+            }
+            catch (JsonException)
+            {
+
+            }
             apps ??= [];
             apps.Add(app);
             File.WriteAllText(AppEnvironment.UsersApps, JsonSerializer.Serialize(apps));
@@ -118,7 +126,19 @@ namespace ExeInstaller.Pages
         private void UpdateUI()
         {
             this.installedApps.Items.Clear();
-            List<App>? apps = JsonSerializer.Deserialize<List<App>>(System.IO.File.ReadAllText(AppEnvironment.UsersApps));
+
+            List<App> apps = [];
+            try
+            {
+                apps = JsonSerializer.Deserialize<List<App>>(System.IO.File.ReadAllText(AppEnvironment.UsersApps));
+            }
+            catch(Exception ex)
+            {
+                apps = [];
+                Information info = new("Error", ex.Message);
+                 
+                info.ShowDialog(); 
+            }
             apps ??= [];
             foreach (App app in apps)
             {

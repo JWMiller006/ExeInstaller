@@ -54,6 +54,7 @@
             closeToolStripMenuItem = new ToolStripMenuItem();
             refreshToolStripMenuItem = new ToolStripMenuItem();
             refreshPageToolStripMenuItem = new ToolStripMenuItem();
+            exitToolStripMenuItem = new ToolStripMenuItem();
             statusBar = new StatusStrip();
             statusText = new ToolStripStatusLabel();
             toolStripProgressBar1 = new ToolStripProgressBar();
@@ -80,7 +81,6 @@
             notification = new NotifyIcon(components);
             openFile = new OpenFileDialog();
             saveFile = new SaveFileDialog();
-            exitToolStripMenuItem = new ToolStripMenuItem();
             menu.SuspendLayout();
             statusBar.SuspendLayout();
             mainContainer.SuspendLayout();
@@ -95,7 +95,8 @@
             menu.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, viewToolStripMenuItem, helpToolStripMenuItem, refreshToolStripMenuItem, exitToolStripMenuItem });
             menu.Location = new Point(0, 0);
             menu.Name = "menu";
-            menu.Size = new Size(1084, 24);
+            menu.Padding = new Padding(7, 3, 0, 3);
+            menu.Size = new Size(1239, 30);
             menu.TabIndex = 0;
             menu.Text = "menuStrip1";
             // 
@@ -103,7 +104,7 @@
             // 
             fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { openToolStripMenuItem, saveToolStripMenuItem, saveAsToolStripMenuItem, closeToolStripMenuItem1 });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            fileToolStripMenuItem.Size = new Size(37, 20);
+            fileToolStripMenuItem.Size = new Size(46, 24);
             fileToolStripMenuItem.Text = "File";
             fileToolStripMenuItem.Click += fileToolStripMenuItem_Click;
             // 
@@ -111,32 +112,32 @@
             // 
             openToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { txtToolStripMenuItem1, jsonToolStripMenuItem1, otherToolStripMenuItem1 });
             openToolStripMenuItem.Name = "openToolStripMenuItem";
-            openToolStripMenuItem.Size = new Size(180, 22);
+            openToolStripMenuItem.Size = new Size(143, 26);
             openToolStripMenuItem.Text = "Open...";
             // 
             // txtToolStripMenuItem1
             // 
             txtToolStripMenuItem1.Name = "txtToolStripMenuItem1";
-            txtToolStripMenuItem1.Size = new Size(180, 22);
+            txtToolStripMenuItem1.Size = new Size(138, 26);
             txtToolStripMenuItem1.Text = ".txt";
             // 
             // jsonToolStripMenuItem1
             // 
             jsonToolStripMenuItem1.Name = "jsonToolStripMenuItem1";
-            jsonToolStripMenuItem1.Size = new Size(180, 22);
+            jsonToolStripMenuItem1.Size = new Size(138, 26);
             jsonToolStripMenuItem1.Text = ".json";
             jsonToolStripMenuItem1.Click += jsonToolStripMenuItem1_Click;
             // 
             // otherToolStripMenuItem1
             // 
             otherToolStripMenuItem1.Name = "otherToolStripMenuItem1";
-            otherToolStripMenuItem1.Size = new Size(180, 22);
+            otherToolStripMenuItem1.Size = new Size(138, 26);
             otherToolStripMenuItem1.Text = "Other...";
             // 
             // saveToolStripMenuItem
             // 
             saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            saveToolStripMenuItem.Size = new Size(180, 22);
+            saveToolStripMenuItem.Size = new Size(143, 26);
             saveToolStripMenuItem.Text = "Save";
             saveToolStripMenuItem.Click += saveToolStripMenuItem_Click;
             // 
@@ -144,34 +145,34 @@
             // 
             saveAsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { jsonToolStripMenuItem, txtToolStripMenuItem, otherToolStripMenuItem });
             saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            saveAsToolStripMenuItem.Size = new Size(180, 22);
+            saveAsToolStripMenuItem.Size = new Size(143, 26);
             saveAsToolStripMenuItem.Text = "Save As";
             // 
             // jsonToolStripMenuItem
             // 
             jsonToolStripMenuItem.Name = "jsonToolStripMenuItem";
-            jsonToolStripMenuItem.Size = new Size(180, 22);
+            jsonToolStripMenuItem.Size = new Size(129, 26);
             jsonToolStripMenuItem.Text = ".json";
             jsonToolStripMenuItem.Click += jsonToolStripMenuItem_Click;
             // 
             // txtToolStripMenuItem
             // 
             txtToolStripMenuItem.Name = "txtToolStripMenuItem";
-            txtToolStripMenuItem.Size = new Size(180, 22);
+            txtToolStripMenuItem.Size = new Size(129, 26);
             txtToolStripMenuItem.Text = ".txt";
             txtToolStripMenuItem.Click += txtToolStripMenuItem_Click;
             // 
             // otherToolStripMenuItem
             // 
             otherToolStripMenuItem.Name = "otherToolStripMenuItem";
-            otherToolStripMenuItem.Size = new Size(180, 22);
+            otherToolStripMenuItem.Size = new Size(129, 26);
             otherToolStripMenuItem.Text = "Other";
             otherToolStripMenuItem.Click += otherToolStripMenuItem_Click;
             // 
             // closeToolStripMenuItem1
             // 
             closeToolStripMenuItem1.Name = "closeToolStripMenuItem1";
-            closeToolStripMenuItem1.Size = new Size(180, 22);
+            closeToolStripMenuItem1.Size = new Size(143, 26);
             closeToolStripMenuItem1.Text = "Close";
             closeToolStripMenuItem1.Click += closeToolStripMenuItem1_Click;
             // 
@@ -179,42 +180,42 @@
             // 
             viewToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { smallWindowToolStripMenuItem, taskManagerToolStripMenuItem });
             viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            viewToolStripMenuItem.Size = new Size(44, 20);
+            viewToolStripMenuItem.Size = new Size(55, 24);
             viewToolStripMenuItem.Text = "View";
             // 
             // smallWindowToolStripMenuItem
             // 
             smallWindowToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { smallToolStripMenuItem, mediumToolStripMenuItem, largeToolStripMenuItem });
             smallWindowToolStripMenuItem.Name = "smallWindowToolStripMenuItem";
-            smallWindowToolStripMenuItem.Size = new Size(180, 22);
+            smallWindowToolStripMenuItem.Size = new Size(182, 26);
             smallWindowToolStripMenuItem.Text = "Window";
             smallWindowToolStripMenuItem.Click += windowToolStripMenuItem_Click;
             // 
             // smallToolStripMenuItem
             // 
             smallToolStripMenuItem.Name = "smallToolStripMenuItem";
-            smallToolStripMenuItem.Size = new Size(180, 22);
+            smallToolStripMenuItem.Size = new Size(147, 26);
             smallToolStripMenuItem.Text = "Small";
             smallToolStripMenuItem.Click += smallToolStripMenuItem_Click;
             // 
             // mediumToolStripMenuItem
             // 
             mediumToolStripMenuItem.Name = "mediumToolStripMenuItem";
-            mediumToolStripMenuItem.Size = new Size(180, 22);
+            mediumToolStripMenuItem.Size = new Size(147, 26);
             mediumToolStripMenuItem.Text = "Medium";
             mediumToolStripMenuItem.Click += mediumToolStripMenuItem_Click;
             // 
             // largeToolStripMenuItem
             // 
             largeToolStripMenuItem.Name = "largeToolStripMenuItem";
-            largeToolStripMenuItem.Size = new Size(180, 22);
+            largeToolStripMenuItem.Size = new Size(147, 26);
             largeToolStripMenuItem.Text = "Large";
             largeToolStripMenuItem.Click += largeToolStripMenuItem_Click;
             // 
             // taskManagerToolStripMenuItem
             // 
             taskManagerToolStripMenuItem.Name = "taskManagerToolStripMenuItem";
-            taskManagerToolStripMenuItem.Size = new Size(180, 22);
+            taskManagerToolStripMenuItem.Size = new Size(182, 26);
             taskManagerToolStripMenuItem.Text = "Task Manager";
             taskManagerToolStripMenuItem.Click += taskManagerToolStripMenuItem_Click;
             // 
@@ -222,27 +223,27 @@
             // 
             helpToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { whatIsThisToolStripMenuItem, whyAmISeeingThisToolStripMenuItem, closeToolStripMenuItem });
             helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            helpToolStripMenuItem.Size = new Size(44, 20);
+            helpToolStripMenuItem.Size = new Size(55, 24);
             helpToolStripMenuItem.Text = "Help";
             // 
             // whatIsThisToolStripMenuItem
             // 
             whatIsThisToolStripMenuItem.Name = "whatIsThisToolStripMenuItem";
-            whatIsThisToolStripMenuItem.Size = new Size(188, 22);
+            whatIsThisToolStripMenuItem.Size = new Size(235, 26);
             whatIsThisToolStripMenuItem.Text = "What is this?";
             whatIsThisToolStripMenuItem.Click += whatIsThisToolStripMenuItem_Click;
             // 
             // whyAmISeeingThisToolStripMenuItem
             // 
             whyAmISeeingThisToolStripMenuItem.Name = "whyAmISeeingThisToolStripMenuItem";
-            whyAmISeeingThisToolStripMenuItem.Size = new Size(188, 22);
+            whyAmISeeingThisToolStripMenuItem.Size = new Size(235, 26);
             whyAmISeeingThisToolStripMenuItem.Text = "Why am I seeing this?";
             whyAmISeeingThisToolStripMenuItem.Click += whyAmISeeingThisToolStripMenuItem_Click;
             // 
             // closeToolStripMenuItem
             // 
             closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            closeToolStripMenuItem.Size = new Size(188, 22);
+            closeToolStripMenuItem.Size = new Size(235, 26);
             closeToolStripMenuItem.Text = "Close";
             closeToolStripMenuItem.Click += closeToolStripMenuItem_Click;
             // 
@@ -250,24 +251,32 @@
             // 
             refreshToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { refreshPageToolStripMenuItem });
             refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            refreshToolStripMenuItem.Size = new Size(58, 20);
+            refreshToolStripMenuItem.Size = new Size(72, 24);
             refreshToolStripMenuItem.Text = "Refresh";
             refreshToolStripMenuItem.Click += refreshToolStripMenuItem_Click;
             // 
             // refreshPageToolStripMenuItem
             // 
             refreshPageToolStripMenuItem.Name = "refreshPageToolStripMenuItem";
-            refreshPageToolStripMenuItem.Size = new Size(180, 22);
+            refreshPageToolStripMenuItem.Size = new Size(177, 26);
             refreshPageToolStripMenuItem.Text = "Refresh Page";
             refreshPageToolStripMenuItem.Click += refreshPageToolStripMenuItem_Click;
+            // 
+            // exitToolStripMenuItem
+            // 
+            exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            exitToolStripMenuItem.Size = new Size(47, 24);
+            exitToolStripMenuItem.Text = "Exit";
+            exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
             // statusBar
             // 
             statusBar.ImageScalingSize = new Size(20, 20);
             statusBar.Items.AddRange(new ToolStripItem[] { statusText, toolStripProgressBar1 });
-            statusBar.Location = new Point(0, 589);
+            statusBar.Location = new Point(0, 788);
             statusBar.Name = "statusBar";
-            statusBar.Size = new Size(1084, 22);
+            statusBar.Padding = new Padding(1, 0, 16, 0);
+            statusBar.Size = new Size(1239, 27);
             statusBar.TabIndex = 1;
             statusBar.Text = "statusStrip1";
             // 
@@ -276,14 +285,14 @@
             statusText.BackColor = SystemColors.Control;
             statusText.Name = "statusText";
             statusText.Padding = new Padding(0, 0, 30, 0);
-            statusText.Size = new Size(181, 17);
+            statusText.Size = new Size(218, 21);
             statusText.Text = "Status: Nothing Happening";
             statusText.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // toolStripProgressBar1
             // 
             toolStripProgressBar1.Name = "toolStripProgressBar1";
-            toolStripProgressBar1.Size = new Size(88, 16);
+            toolStripProgressBar1.Size = new Size(101, 19);
             toolStripProgressBar1.Visible = false;
             // 
             // mainContainer
@@ -292,10 +301,11 @@
             mainContainer.Controls.Add(InstallPage);
             mainContainer.Controls.Add(VersionPage);
             mainContainer.Controls.Add(unregisterPage);
-            mainContainer.Location = new Point(0, 26);
+            mainContainer.Location = new Point(0, 35);
+            mainContainer.Margin = new Padding(3, 4, 3, 4);
             mainContainer.Name = "mainContainer";
             mainContainer.SelectedIndex = 0;
-            mainContainer.Size = new Size(1084, 563);
+            mainContainer.Size = new Size(1239, 751);
             mainContainer.TabIndex = 2;
             mainContainer.TabIndexChanged += mainContainer_TabIndexChanged;
             // 
@@ -311,10 +321,11 @@
             InstallPage.Controls.Add(appNameLabel);
             InstallPage.Controls.Add(AddApplicationButton);
             InstallPage.Controls.Add(links);
-            InstallPage.Location = new Point(4, 24);
+            InstallPage.Location = new Point(4, 29);
+            InstallPage.Margin = new Padding(3, 4, 3, 4);
             InstallPage.Name = "InstallPage";
-            InstallPage.Padding = new Padding(3);
-            InstallPage.Size = new Size(1076, 535);
+            InstallPage.Padding = new Padding(3, 4, 3, 4);
+            InstallPage.Size = new Size(1231, 718);
             InstallPage.TabIndex = 0;
             InstallPage.Text = "Register Application";
             // 
@@ -322,9 +333,9 @@
             // 
             URLInstructions.Anchor = AnchorStyles.Top;
             URLInstructions.AutoSize = true;
-            URLInstructions.Location = new Point(25, 130);
+            URLInstructions.Location = new Point(29, 173);
             URLInstructions.Name = "URLInstructions";
-            URLInstructions.Size = new Size(433, 45);
+            URLInstructions.Size = new Size(538, 60);
             URLInstructions.TabIndex = 8;
             URLInstructions.Text = "Enter the Downloadable URLs for the application\r\nExample: \r\nhttps://raw.githubusercontent.com/JWMiller006/ExeInstaller/master/updater.bat";
             // 
@@ -334,18 +345,19 @@
             publisherInput.BackColor = Color.FromArgb(64, 64, 64);
             publisherInput.BorderStyle = BorderStyle.None;
             publisherInput.ForeColor = SystemColors.Window;
-            publisherInput.Location = new Point(644, 148);
+            publisherInput.Location = new Point(736, 197);
+            publisherInput.Margin = new Padding(3, 4, 3, 4);
             publisherInput.Name = "publisherInput";
-            publisherInput.Size = new Size(412, 16);
+            publisherInput.Size = new Size(471, 20);
             publisherInput.TabIndex = 7;
             // 
             // PublisherLabel
             // 
             PublisherLabel.Anchor = AnchorStyles.Top;
             PublisherLabel.AutoSize = true;
-            PublisherLabel.Location = new Point(644, 130);
+            PublisherLabel.Location = new Point(736, 173);
             PublisherLabel.Name = "PublisherLabel";
-            PublisherLabel.Size = new Size(81, 15);
+            PublisherLabel.Size = new Size(101, 20);
             PublisherLabel.TabIndex = 6;
             PublisherLabel.Text = "App Publisher";
             // 
@@ -355,18 +367,19 @@
             appVersionInput.BackColor = Color.FromArgb(64, 64, 64);
             appVersionInput.BorderStyle = BorderStyle.None;
             appVersionInput.ForeColor = SystemColors.Window;
-            appVersionInput.Location = new Point(644, 93);
+            appVersionInput.Location = new Point(736, 124);
+            appVersionInput.Margin = new Padding(3, 4, 3, 4);
             appVersionInput.Name = "appVersionInput";
-            appVersionInput.Size = new Size(412, 16);
+            appVersionInput.Size = new Size(471, 20);
             appVersionInput.TabIndex = 5;
             // 
             // AppVersionLabel
             // 
             AppVersionLabel.Anchor = AnchorStyles.Top;
             AppVersionLabel.AutoSize = true;
-            AppVersionLabel.Location = new Point(644, 75);
+            AppVersionLabel.Location = new Point(736, 100);
             AppVersionLabel.Name = "AppVersionLabel";
-            AppVersionLabel.Size = new Size(70, 15);
+            AppVersionLabel.Size = new Size(89, 20);
             AppVersionLabel.TabIndex = 4;
             AppVersionLabel.Text = "App Version";
             // 
@@ -376,27 +389,29 @@
             appNameIn.BackColor = Color.FromArgb(64, 64, 64);
             appNameIn.BorderStyle = BorderStyle.None;
             appNameIn.ForeColor = SystemColors.Window;
-            appNameIn.Location = new Point(25, 93);
+            appNameIn.Location = new Point(29, 124);
+            appNameIn.Margin = new Padding(3, 4, 3, 4);
             appNameIn.Name = "appNameIn";
-            appNameIn.Size = new Size(613, 16);
+            appNameIn.Size = new Size(701, 20);
             appNameIn.TabIndex = 3;
             // 
             // appNameLabel
             // 
             appNameLabel.Anchor = AnchorStyles.Top;
             appNameLabel.AutoSize = true;
-            appNameLabel.Location = new Point(25, 75);
+            appNameLabel.Location = new Point(29, 100);
             appNameLabel.Name = "appNameLabel";
-            appNameLabel.Size = new Size(64, 15);
+            appNameLabel.Size = new Size(81, 20);
             appNameLabel.TabIndex = 2;
             appNameLabel.Text = "App Name";
             // 
             // AddApplicationButton
             // 
             AddApplicationButton.Anchor = AnchorStyles.Top;
-            AddApplicationButton.Location = new Point(491, 448);
+            AddApplicationButton.Location = new Point(561, 597);
+            AddApplicationButton.Margin = new Padding(3, 4, 3, 4);
             AddApplicationButton.Name = "AddApplicationButton";
-            AddApplicationButton.Size = new Size(110, 38);
+            AddApplicationButton.Size = new Size(126, 51);
             AddApplicationButton.TabIndex = 1;
             AddApplicationButton.Text = "Add App";
             AddApplicationButton.UseVisualStyleBackColor = true;
@@ -408,10 +423,9 @@
             links.BackColor = Color.FromArgb(64, 64, 64);
             links.BorderStyle = BorderStyle.None;
             links.ForeColor = SystemColors.Window;
-            links.Location = new Point(28, 192);
-            links.Margin = new Padding(3, 2, 3, 2);
+            links.Location = new Point(32, 256);
             links.Name = "links";
-            links.Size = new Size(1025, 251);
+            links.Size = new Size(1171, 335);
             links.TabIndex = 0;
             links.Text = "";
             // 
@@ -423,10 +437,11 @@
             VersionPage.Controls.Add(DirectoryLbl);
             VersionPage.Controls.Add(versionOut);
             VersionPage.Controls.Add(AppVersionLbl);
-            VersionPage.Location = new Point(4, 24);
+            VersionPage.Location = new Point(4, 29);
+            VersionPage.Margin = new Padding(3, 4, 3, 4);
             VersionPage.Name = "VersionPage";
-            VersionPage.Padding = new Padding(3);
-            VersionPage.Size = new Size(1076, 535);
+            VersionPage.Padding = new Padding(3, 4, 3, 4);
+            VersionPage.Size = new Size(1231, 718);
             VersionPage.TabIndex = 1;
             VersionPage.Text = "Current Version Info";
             // 
@@ -434,9 +449,9 @@
             // 
             label2.Anchor = AnchorStyles.Bottom;
             label2.AutoSize = true;
-            label2.Location = new Point(437, 501);
+            label2.Location = new Point(499, 668);
             label2.Name = "label2";
-            label2.Size = new Size(182, 15);
+            label2.Size = new Size(229, 20);
             label2.TabIndex = 4;
             label2.Text = "Copyright 2024 J Miller; Miller Inc";
             // 
@@ -444,9 +459,9 @@
             // 
             directoryOut.Anchor = AnchorStyles.Top;
             directoryOut.AutoSize = true;
-            directoryOut.Location = new Point(486, 155);
+            directoryOut.Location = new Point(555, 207);
             directoryOut.Name = "directoryOut";
-            directoryOut.Size = new Size(23, 15);
+            directoryOut.Size = new Size(27, 20);
             directoryOut.TabIndex = 3;
             directoryOut.Text = "C:\\";
             directoryOut.Click += directoryOut_Click;
@@ -455,9 +470,9 @@
             // 
             DirectoryLbl.Anchor = AnchorStyles.Top;
             DirectoryLbl.AutoSize = true;
-            DirectoryLbl.Location = new Point(375, 155);
+            DirectoryLbl.Location = new Point(429, 207);
             DirectoryLbl.Name = "DirectoryLbl";
-            DirectoryLbl.Size = new Size(113, 15);
+            DirectoryLbl.Size = new Size(145, 20);
             DirectoryLbl.TabIndex = 2;
             DirectoryLbl.Text = "App Data Directory: ";
             // 
@@ -465,9 +480,9 @@
             // 
             versionOut.Anchor = AnchorStyles.Top;
             versionOut.AutoSize = true;
-            versionOut.Location = new Point(484, 140);
+            versionOut.Location = new Point(553, 187);
             versionOut.Name = "versionOut";
-            versionOut.Size = new Size(36, 15);
+            versionOut.Size = new Size(42, 20);
             versionOut.TabIndex = 1;
             versionOut.Text = "*.*.*.*";
             // 
@@ -475,9 +490,9 @@
             // 
             AppVersionLbl.Anchor = AnchorStyles.Top;
             AppVersionLbl.AutoSize = true;
-            AppVersionLbl.Location = new Point(437, 140);
+            AppVersionLbl.Location = new Point(499, 187);
             AppVersionLbl.Name = "AppVersionLbl";
-            AppVersionLbl.Size = new Size(51, 15);
+            AppVersionLbl.Size = new Size(64, 20);
             AppVersionLbl.TabIndex = 0;
             AppVersionLbl.Text = "Version: ";
             // 
@@ -486,19 +501,21 @@
             unregisterPage.BackColor = Color.Gray;
             unregisterPage.Controls.Add(uninstall);
             unregisterPage.Controls.Add(installedApps);
-            unregisterPage.Location = new Point(4, 24);
+            unregisterPage.Location = new Point(4, 29);
+            unregisterPage.Margin = new Padding(3, 4, 3, 4);
             unregisterPage.Name = "unregisterPage";
-            unregisterPage.Padding = new Padding(3);
-            unregisterPage.Size = new Size(1076, 535);
+            unregisterPage.Padding = new Padding(3, 4, 3, 4);
+            unregisterPage.Size = new Size(1231, 718);
             unregisterPage.TabIndex = 2;
             unregisterPage.Text = "Unregister App";
             // 
             // uninstall
             // 
             uninstall.Anchor = AnchorStyles.None;
-            uninstall.Location = new Point(426, 414);
+            uninstall.Location = new Point(487, 552);
+            uninstall.Margin = new Padding(3, 4, 3, 4);
             uninstall.Name = "uninstall";
-            uninstall.Size = new Size(169, 46);
+            uninstall.Size = new Size(193, 61);
             uninstall.TabIndex = 1;
             uninstall.Text = "Uninstall Selected Apps";
             uninstall.UseVisualStyleBackColor = true;
@@ -509,9 +526,10 @@
             installedApps.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             installedApps.FormattingEnabled = true;
             installedApps.Items.AddRange(new object[] { "no user installed apps are available" });
-            installedApps.Location = new Point(242, 132);
+            installedApps.Location = new Point(277, 176);
+            installedApps.Margin = new Padding(3, 4, 3, 4);
             installedApps.Name = "installedApps";
-            installedApps.Size = new Size(545, 256);
+            installedApps.Size = new Size(622, 334);
             installedApps.TabIndex = 0;
             // 
             // notification
@@ -525,25 +543,19 @@
             openFile.FileName = "openFileDialog1";
             openFile.FileOk += openFile_FileOk;
             // 
-            // exitToolStripMenuItem
-            // 
-            exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(38, 20);
-            exitToolStripMenuItem.Text = "Exit";
-            exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
-            // 
             // Administrative
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.IndianRed;
-            ClientSize = new Size(1084, 611);
+            ClientSize = new Size(1239, 815);
             Controls.Add(mainContainer);
             Controls.Add(statusBar);
             Controls.Add(menu);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menu;
-            MinimumSize = new Size(1100, 650);
+            Margin = new Padding(3, 4, 3, 4);
+            MinimumSize = new Size(1255, 851);
             Name = "Administrative";
             Text = "Admin Page";
             menu.ResumeLayout(false);
