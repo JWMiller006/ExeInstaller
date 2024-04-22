@@ -21,6 +21,16 @@ namespace ExeInstaller.Backend
         /// </summary>
         public bool SupportsMillerInc { get; set; } = false;
 
+        /// <summary>
+        /// A type of app that determines how the app is installed
+        /// </summary>
+        public AppType AppType { get; set; } = AppType.ListOfFiles; 
+
+        /// <summary>
+        /// If the app is a zip file, this is the name of the zip file; if the app is a self-installer, this is the name of the installer
+        /// </summary>
+        public string MainFileLink { get; set; } = "not set";
+
         public static List<string> GetPublishers(List<App> apps)
         {
             List<string> publishers = [];

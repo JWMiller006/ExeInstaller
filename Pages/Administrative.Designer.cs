@@ -54,11 +54,13 @@
             closeToolStripMenuItem = new ToolStripMenuItem();
             refreshToolStripMenuItem = new ToolStripMenuItem();
             refreshPageToolStripMenuItem = new ToolStripMenuItem();
+            exitToolStripMenuItem = new ToolStripMenuItem();
             statusBar = new StatusStrip();
             statusText = new ToolStripStatusLabel();
             toolStripProgressBar1 = new ToolStripProgressBar();
             mainContainer = new TabControl();
             InstallPage = new TabPage();
+            appTypeDropdown = new ComboBox();
             URLInstructions = new Label();
             publisherInput = new TextBox();
             PublisherLabel = new Label();
@@ -77,16 +79,23 @@
             unregisterPage = new TabPage();
             uninstall = new Button();
             installedApps = new CheckedListBox();
+            ColorPrefPage = new TabPage();
+            ForeColorBttn = new Button();
+            SecondaryColorBttn = new Button();
+            BackColorBttn = new Button();
             notification = new NotifyIcon(components);
             openFile = new OpenFileDialog();
             saveFile = new SaveFileDialog();
-            exitToolStripMenuItem = new ToolStripMenuItem();
+            BackColorPicker = new ColorDialog();
+            ForeColorPicker = new ColorDialog();
+            SecondaryColorPicker = new ColorDialog();
             menu.SuspendLayout();
             statusBar.SuspendLayout();
             mainContainer.SuspendLayout();
             InstallPage.SuspendLayout();
             VersionPage.SuspendLayout();
             unregisterPage.SuspendLayout();
+            ColorPrefPage.SuspendLayout();
             SuspendLayout();
             // 
             // menu
@@ -111,32 +120,32 @@
             // 
             openToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { txtToolStripMenuItem1, jsonToolStripMenuItem1, otherToolStripMenuItem1 });
             openToolStripMenuItem.Name = "openToolStripMenuItem";
-            openToolStripMenuItem.Size = new Size(180, 22);
+            openToolStripMenuItem.Size = new Size(114, 22);
             openToolStripMenuItem.Text = "Open...";
             // 
             // txtToolStripMenuItem1
             // 
             txtToolStripMenuItem1.Name = "txtToolStripMenuItem1";
-            txtToolStripMenuItem1.Size = new Size(180, 22);
+            txtToolStripMenuItem1.Size = new Size(113, 22);
             txtToolStripMenuItem1.Text = ".txt";
             // 
             // jsonToolStripMenuItem1
             // 
             jsonToolStripMenuItem1.Name = "jsonToolStripMenuItem1";
-            jsonToolStripMenuItem1.Size = new Size(180, 22);
+            jsonToolStripMenuItem1.Size = new Size(113, 22);
             jsonToolStripMenuItem1.Text = ".json";
             jsonToolStripMenuItem1.Click += jsonToolStripMenuItem1_Click;
             // 
             // otherToolStripMenuItem1
             // 
             otherToolStripMenuItem1.Name = "otherToolStripMenuItem1";
-            otherToolStripMenuItem1.Size = new Size(180, 22);
+            otherToolStripMenuItem1.Size = new Size(113, 22);
             otherToolStripMenuItem1.Text = "Other...";
             // 
             // saveToolStripMenuItem
             // 
             saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            saveToolStripMenuItem.Size = new Size(180, 22);
+            saveToolStripMenuItem.Size = new Size(114, 22);
             saveToolStripMenuItem.Text = "Save";
             saveToolStripMenuItem.Click += saveToolStripMenuItem_Click;
             // 
@@ -144,34 +153,34 @@
             // 
             saveAsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { jsonToolStripMenuItem, txtToolStripMenuItem, otherToolStripMenuItem });
             saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            saveAsToolStripMenuItem.Size = new Size(180, 22);
+            saveAsToolStripMenuItem.Size = new Size(114, 22);
             saveAsToolStripMenuItem.Text = "Save As";
             // 
             // jsonToolStripMenuItem
             // 
             jsonToolStripMenuItem.Name = "jsonToolStripMenuItem";
-            jsonToolStripMenuItem.Size = new Size(180, 22);
+            jsonToolStripMenuItem.Size = new Size(104, 22);
             jsonToolStripMenuItem.Text = ".json";
             jsonToolStripMenuItem.Click += jsonToolStripMenuItem_Click;
             // 
             // txtToolStripMenuItem
             // 
             txtToolStripMenuItem.Name = "txtToolStripMenuItem";
-            txtToolStripMenuItem.Size = new Size(180, 22);
+            txtToolStripMenuItem.Size = new Size(104, 22);
             txtToolStripMenuItem.Text = ".txt";
             txtToolStripMenuItem.Click += txtToolStripMenuItem_Click;
             // 
             // otherToolStripMenuItem
             // 
             otherToolStripMenuItem.Name = "otherToolStripMenuItem";
-            otherToolStripMenuItem.Size = new Size(180, 22);
+            otherToolStripMenuItem.Size = new Size(104, 22);
             otherToolStripMenuItem.Text = "Other";
             otherToolStripMenuItem.Click += otherToolStripMenuItem_Click;
             // 
             // closeToolStripMenuItem1
             // 
             closeToolStripMenuItem1.Name = "closeToolStripMenuItem1";
-            closeToolStripMenuItem1.Size = new Size(180, 22);
+            closeToolStripMenuItem1.Size = new Size(114, 22);
             closeToolStripMenuItem1.Text = "Close";
             closeToolStripMenuItem1.Click += closeToolStripMenuItem1_Click;
             // 
@@ -186,35 +195,35 @@
             // 
             smallWindowToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { smallToolStripMenuItem, mediumToolStripMenuItem, largeToolStripMenuItem });
             smallWindowToolStripMenuItem.Name = "smallWindowToolStripMenuItem";
-            smallWindowToolStripMenuItem.Size = new Size(180, 22);
+            smallWindowToolStripMenuItem.Size = new Size(146, 22);
             smallWindowToolStripMenuItem.Text = "Window";
             smallWindowToolStripMenuItem.Click += windowToolStripMenuItem_Click;
             // 
             // smallToolStripMenuItem
             // 
             smallToolStripMenuItem.Name = "smallToolStripMenuItem";
-            smallToolStripMenuItem.Size = new Size(180, 22);
+            smallToolStripMenuItem.Size = new Size(119, 22);
             smallToolStripMenuItem.Text = "Small";
             smallToolStripMenuItem.Click += smallToolStripMenuItem_Click;
             // 
             // mediumToolStripMenuItem
             // 
             mediumToolStripMenuItem.Name = "mediumToolStripMenuItem";
-            mediumToolStripMenuItem.Size = new Size(180, 22);
+            mediumToolStripMenuItem.Size = new Size(119, 22);
             mediumToolStripMenuItem.Text = "Medium";
             mediumToolStripMenuItem.Click += mediumToolStripMenuItem_Click;
             // 
             // largeToolStripMenuItem
             // 
             largeToolStripMenuItem.Name = "largeToolStripMenuItem";
-            largeToolStripMenuItem.Size = new Size(180, 22);
+            largeToolStripMenuItem.Size = new Size(119, 22);
             largeToolStripMenuItem.Text = "Large";
             largeToolStripMenuItem.Click += largeToolStripMenuItem_Click;
             // 
             // taskManagerToolStripMenuItem
             // 
             taskManagerToolStripMenuItem.Name = "taskManagerToolStripMenuItem";
-            taskManagerToolStripMenuItem.Size = new Size(180, 22);
+            taskManagerToolStripMenuItem.Size = new Size(146, 22);
             taskManagerToolStripMenuItem.Text = "Task Manager";
             taskManagerToolStripMenuItem.Click += taskManagerToolStripMenuItem_Click;
             // 
@@ -257,9 +266,16 @@
             // refreshPageToolStripMenuItem
             // 
             refreshPageToolStripMenuItem.Name = "refreshPageToolStripMenuItem";
-            refreshPageToolStripMenuItem.Size = new Size(180, 22);
+            refreshPageToolStripMenuItem.Size = new Size(142, 22);
             refreshPageToolStripMenuItem.Text = "Refresh Page";
             refreshPageToolStripMenuItem.Click += refreshPageToolStripMenuItem_Click;
+            // 
+            // exitToolStripMenuItem
+            // 
+            exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            exitToolStripMenuItem.Size = new Size(38, 20);
+            exitToolStripMenuItem.Text = "Exit";
+            exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
             // statusBar
             // 
@@ -292,6 +308,7 @@
             mainContainer.Controls.Add(InstallPage);
             mainContainer.Controls.Add(VersionPage);
             mainContainer.Controls.Add(unregisterPage);
+            mainContainer.Controls.Add(ColorPrefPage);
             mainContainer.Location = new Point(0, 26);
             mainContainer.Name = "mainContainer";
             mainContainer.SelectedIndex = 0;
@@ -302,6 +319,7 @@
             // InstallPage
             // 
             InstallPage.BackColor = Color.PaleVioletRed;
+            InstallPage.Controls.Add(appTypeDropdown);
             InstallPage.Controls.Add(URLInstructions);
             InstallPage.Controls.Add(publisherInput);
             InstallPage.Controls.Add(PublisherLabel);
@@ -317,6 +335,19 @@
             InstallPage.Size = new Size(1076, 535);
             InstallPage.TabIndex = 0;
             InstallPage.Text = "Register Application";
+            // 
+            // appTypeDropdown
+            // 
+            appTypeDropdown.AutoCompleteCustomSource.AddRange(new string[] { "ListOfFiles", "ZipFile", "SelfInstaller" });
+            appTypeDropdown.AutoCompleteMode = AutoCompleteMode.Suggest;
+            appTypeDropdown.AutoCompleteSource = AutoCompleteSource.ListItems;
+            appTypeDropdown.BackColor = Color.DimGray;
+            appTypeDropdown.FormattingEnabled = true;
+            appTypeDropdown.Items.AddRange(new object[] { "List of Files", "Zip File", "Self Installer" });
+            appTypeDropdown.Location = new Point(820, 473);
+            appTypeDropdown.Name = "appTypeDropdown";
+            appTypeDropdown.Size = new Size(233, 23);
+            appTypeDropdown.TabIndex = 9;
             // 
             // URLInstructions
             // 
@@ -514,6 +545,52 @@
             installedApps.Size = new Size(545, 256);
             installedApps.TabIndex = 0;
             // 
+            // ColorPrefPage
+            // 
+            ColorPrefPage.BackColor = Color.DimGray;
+            ColorPrefPage.Controls.Add(ForeColorBttn);
+            ColorPrefPage.Controls.Add(SecondaryColorBttn);
+            ColorPrefPage.Controls.Add(BackColorBttn);
+            ColorPrefPage.Location = new Point(4, 24);
+            ColorPrefPage.Name = "ColorPrefPage";
+            ColorPrefPage.Padding = new Padding(3);
+            ColorPrefPage.Size = new Size(1076, 535);
+            ColorPrefPage.TabIndex = 3;
+            ColorPrefPage.Text = "Color Preferences";
+            // 
+            // ForeColorBttn
+            // 
+            ForeColorBttn.Anchor = AnchorStyles.Top;
+            ForeColorBttn.Location = new Point(456, 133);
+            ForeColorBttn.Name = "ForeColorBttn";
+            ForeColorBttn.Size = new Size(133, 39);
+            ForeColorBttn.TabIndex = 2;
+            ForeColorBttn.Text = "Primary Color";
+            ForeColorBttn.UseVisualStyleBackColor = true;
+            ForeColorBttn.Click += ForeColorBttn_Click;
+            // 
+            // SecondaryColorBttn
+            // 
+            SecondaryColorBttn.Anchor = AnchorStyles.Top;
+            SecondaryColorBttn.Location = new Point(456, 178);
+            SecondaryColorBttn.Name = "SecondaryColorBttn";
+            SecondaryColorBttn.Size = new Size(133, 39);
+            SecondaryColorBttn.TabIndex = 1;
+            SecondaryColorBttn.Text = "Secondary Color";
+            SecondaryColorBttn.UseVisualStyleBackColor = true;
+            SecondaryColorBttn.Click += SecondaryColorBttn_Click;
+            // 
+            // BackColorBttn
+            // 
+            BackColorBttn.Anchor = AnchorStyles.Top;
+            BackColorBttn.Location = new Point(456, 88);
+            BackColorBttn.Name = "BackColorBttn";
+            BackColorBttn.Size = new Size(133, 39);
+            BackColorBttn.TabIndex = 0;
+            BackColorBttn.Text = "Background Color";
+            BackColorBttn.UseVisualStyleBackColor = true;
+            BackColorBttn.Click += BackColorBttn_Click;
+            // 
             // notification
             // 
             notification.Icon = (Icon)resources.GetObject("notification.Icon");
@@ -524,13 +601,6 @@
             // 
             openFile.FileName = "openFileDialog1";
             openFile.FileOk += openFile_FileOk;
-            // 
-            // exitToolStripMenuItem
-            // 
-            exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(38, 20);
-            exitToolStripMenuItem.Text = "Exit";
-            exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
             // Administrative
             // 
@@ -556,6 +626,7 @@
             VersionPage.ResumeLayout(false);
             VersionPage.PerformLayout();
             unregisterPage.ResumeLayout(false);
+            ColorPrefPage.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -613,5 +684,13 @@
         private OpenFileDialog openFile;
         private SaveFileDialog saveFile;
         private ToolStripMenuItem exitToolStripMenuItem;
+        private ComboBox appTypeDropdown;
+        private TabPage ColorPrefPage;
+        private Button ForeColorBttn;
+        private Button SecondaryColorBttn;
+        private Button BackColorBttn;
+        private ColorDialog BackColorPicker;
+        private ColorDialog ForeColorPicker;
+        private ColorDialog SecondaryColorPicker;
     }
 }

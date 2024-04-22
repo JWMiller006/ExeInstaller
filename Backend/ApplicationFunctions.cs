@@ -171,6 +171,23 @@ namespace ExeInstaller.Backend
             return names; 
         }
 
+        public static List<App> GetUpdates() 
+        {
+            List<App> updates = [];
+            List<App>? installed = System.Text.Json.JsonSerializer.Deserialize<List<App>>(System.IO.File.ReadAllText(AppEnvironment.UsersApps));
+            foreach (App app in AppEnvironment.InstallableApps)
+            {
+                if (app.SupportsMillerInc)
+                {
+                    if (app.DownloadUrls[app.DownloadUrls.Count - 1] != app.AppVersion)
+                    {
+                        updates.Add(app);
+                    }
+                }
+            }
+            return updates;
+        }
+
         /// <summary>
         /// Gets the download from the server and relpaces the current version with the new version, 
         /// assumes that there is access to the network

@@ -8,8 +8,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <EnableWindowsTargeting>true</EnableWindowsTargeting>
     <ApplicationIcon>install.ico</ApplicationIcon>
-    <AssemblyVersion>1.0.2.1</AssemblyVersion>
-    <FileVersion>1.0.2.1</FileVersion>
+    <AssemblyVersion>1.0.3.0</AssemblyVersion>
+    <FileVersion>1.0.3.0</FileVersion>
+    <StartupObject>ExeInstaller.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,6 +28,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Update="updater.bat">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>

@@ -49,8 +49,8 @@ namespace ExeInstaller.Pages
 
         private void installationThread_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            Finshed form = new Finshed();
-            form.Show(); 
+            Finshed form = new();
+            form.ShowDialog(); 
             this.Close();
         }
     }

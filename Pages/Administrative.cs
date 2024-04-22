@@ -91,8 +91,19 @@ namespace ExeInstaller.Pages
                 AppName = this.appNameIn.Text,
                 AppVersion = this.appVersionInput.Text,
                 DownloadUrls = this.links.Lines.ToList(),
-                Publisher = this.publisherInput.Text
+                Publisher = this.publisherInput.Text,
+                AppType = this.appTypeDropdown.Text switch
+                {
+                    "List of Files" => AppType.ListOfFiles,
+                    "Zip File" => AppType.ZipFile,
+                    "Self Installer" => AppType.SelfInstaller,
+                    _ => AppType.ListOfFiles
+                }
             };
+            if (app.AppType == AppType.ZipFile)
+            {
+                this.statusText.Text = "Choose the link of the zip file";
+            }
             AppEnvironment.InstallableApps.Add(app);
             List<App>? apps = JsonSerializer.Deserialize<List<App>>(System.IO.File.ReadAllText(AppEnvironment.UsersApps));
             apps ??= [];
@@ -100,6 +111,10 @@ namespace ExeInstaller.Pages
             File.WriteAllText(AppEnvironment.UsersApps, JsonSerializer.Serialize(apps));
             this.Clear();
             this.statusText.Text = "App Added";
+            if (app.AppType == AppType.SelfInstaller)
+            {
+                this.statusText.Text = "App Added, but that app type is not supported at this time";
+            }
         }
 
         private void Clear()
@@ -117,7 +132,36 @@ namespace ExeInstaller.Pages
 
         private void UpdateUI()
         {
+            this.BackColor = ExeInstaller.Properties.Settings.Default.DefaultBackColor; // Set the background color
+            this.ForeColor = ExeInstaller.Properties.Settings.Default.DefaultForeColor; // Set the text color
+            this.installedApps.BackColor = ExeInstaller.Properties.Settings.Default.DefaultBackColor; // Set the background color
+            this.installedApps.ForeColor = ExeInstaller.Properties.Settings.Default.DefaultForeColor; // Set the text color
+            this.appNameLabel.ForeColor = ExeInstaller.Properties.Settings.Default.DefaultForeColor; // Set the text color
+            this.AppVersionLabel.ForeColor = ExeInstaller.Properties.Settings.Default.DefaultForeColor; // Set the text color
+            this.label2.ForeColor = ExeInstaller.Properties.Settings.Default.DefaultForeColor; // Set the text color
+            this.PublisherLabel.ForeColor = ExeInstaller.Properties.Settings.Default.DefaultForeColor; // Set the text color
+            this.AddApplicationButton.BackColor = ExeInstaller.Properties.Settings.Default.DefaultBackColor; // Set the background color
+            this.AddApplicationButton.ForeColor = ExeInstaller.Properties.Settings.Default.DefaultForeColor; // Set the text color
+            this.uninstall.BackColor = ExeInstaller.Properties.Settings.Default.DefaultBackColor; // Set the background color
+            this.uninstall.ForeColor = ExeInstaller.Properties.Settings.Default.DefaultForeColor; // Set the text color
+            this.directoryOut.BackColor = ExeInstaller.Properties.Settings.Default.DefaultBackColor; // Set the background color
+            this.InstallPage.BackColor = ExeInstaller.Properties.Settings.Default.DefaultBackColor; // Set the background color
+            this.InstallPage.ForeColor = ExeInstaller.Properties.Settings.Default.DefaultForeColor; // Set the text color
+            this.unregisterPage.BackColor = ExeInstaller.Properties.Settings.Default.DefaultBackColor; // Set the background color
+            this.unregisterPage.ForeColor = ExeInstaller.Properties.Settings.Default.DefaultForeColor; // Set the text color
+            this.VersionPage.BackColor = ExeInstaller.Properties.Settings.Default.DefaultBackColor; // Set the background color
+            this.VersionPage.ForeColor = ExeInstaller.Properties.Settings.Default.DefaultForeColor; // Set the text color
+            this.ColorPrefPage.BackColor = ExeInstaller.Properties.Settings.Default.DefaultBackColor; // Set the background color
+            this.ColorPrefPage.ForeColor = ExeInstaller.Properties.Settings.Default.DefaultForeColor; // Set the text color
+            this.BackColorBttn.BackColor = ExeInstaller.Properties.Settings.Default.DefaultBackColor; // Set the background color
+            this.BackColorBttn.ForeColor = ExeInstaller.Properties.Settings.Default.DefaultForeColor; // Set the text color
+            this.ForeColorBttn.BackColor = ExeInstaller.Properties.Settings.Default.DefaultBackColor; // Set the background color
+            this.ForeColorBttn.ForeColor = ExeInstaller.Properties.Settings.Default.DefaultForeColor; // Set the text color
+            this.SecondaryColorBttn.BackColor = ExeInstaller.Properties.Settings.Default.DefaultBackColor; // Set the background color
+            this.SecondaryColorBttn.ForeColor = ExeInstaller.Properties.Settings.Default.DefaultForeColor; // Set the text color
+
             this.installedApps.Items.Clear();
+
             List<App>? apps = JsonSerializer.Deserialize<List<App>>(System.IO.File.ReadAllText(AppEnvironment.UsersApps));
             apps ??= [];
             foreach (App app in apps)
@@ -305,6 +349,39 @@ namespace ExeInstaller.Pages
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Dispose(); // Close the form
+        }
+
+        private void BackColorBttn_Click(object sender, EventArgs e)
+        {
+            DialogResult result = this.BackColorPicker.ShowDialog();
+            if (result.Equals(DialogResult.OK))
+            {
+                ExeInstaller.Properties.Settings.Default.DefaultBackColor = this.BackColorPicker.Color;
+                ExeInstaller.Properties.Settings.Default.Save();
+                this.UpdateUI();
+            }
+        }
+
+        private void ForeColorBttn_Click(object sender, EventArgs e)
+        {
+            DialogResult result = this.ForeColorPicker.ShowDialog();
+            if (result.Equals(DialogResult.OK))
+            {
+                ExeInstaller.Properties.Settings.Default.DefaultForeColor = this.ForeColorPicker.Color;
+                ExeInstaller.Properties.Settings.Default.Save();
+                this.UpdateUI();
+            }
+        }
+
+        private void SecondaryColorBttn_Click(object sender, EventArgs e)
+        {
+            DialogResult result = this.SecondaryColorPicker.ShowDialog();
+            if (result.Equals(DialogResult.OK))
+            {
+                ExeInstaller.Properties.Settings.Default.DefaultTextColor = this.SecondaryColorPicker.Color;
+                ExeInstaller.Properties.Settings.Default.Save();
+                this.UpdateUI();
+            }
         }
     }
 }
