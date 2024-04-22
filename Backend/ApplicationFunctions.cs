@@ -89,8 +89,23 @@ namespace ExeInstaller.Backend
                 await Task.Delay(100);
                 fs.Close();
                 stream.Close();
+                if (!System.IO.File.Exists(AppEnvironment.UsersApps))
+                {
+                    FileStream fstream = System.IO.File.Create(AppEnvironment.UsersApps);
+                    fstream.Flush();
+                    fstream.Close(); 
+                    System.IO.File.WriteAllText(AppEnvironment.UsersApps, "{}");
+                }
                 List<App>? apps = System.Text.Json.JsonSerializer.Deserialize<List<App>>(System.IO.File.ReadAllText(AppEnvironment.PathToAppData + "downloadable.json"));
-                List<App>? userApps = System.Text.Json.JsonSerializer.Deserialize<List<App>>(System.IO.File.ReadAllText(AppEnvironment.UsersApps));
+                List<App>? userApps;
+                try
+                {
+                    userApps = System.Text.Json.JsonSerializer.Deserialize<List<App>>(System.IO.File.ReadAllText(AppEnvironment.UsersApps));
+                }
+                catch
+                {
+                    userApps = []; 
+                }
                 if (apps != null)
                 {
                     AppEnvironment.InstallableApps = apps;
