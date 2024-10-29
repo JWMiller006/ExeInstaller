@@ -204,7 +204,7 @@ namespace ExeInstaller.Backend
         }
 
         /// <summary>
-        /// Gets the download from the server and relpaces the current version with the new version, 
+        /// Gets the download from the server and replaces the current version with the new version, 
         /// assumes that there is access to the network
         /// </summary>
         public static void UpdateInstaller()
@@ -230,6 +230,14 @@ namespace ExeInstaller.Backend
                 proc.Start();
             });
             thread.Start();
+        }
+
+        /// <summary>
+        /// Gets the list of installed apps on the current device and 
+        /// </summary>
+        public static void UpdateAppData()
+        {
+
         }
     }
 }
